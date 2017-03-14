@@ -45,6 +45,15 @@ public class CustomAdapter extends BaseAdapter {
         notifyDataSetChanged();
     }
 
+    public void notInRange(List<GCelliBeacon> beacons) {
+        for(GCelliBeacon b: this.dataSource) {
+            if(beacons.contains(b)) {
+                this.dataSource.remove(b);
+            }
+        }
+        this.notifyDataSetChanged();
+    }
+
     private class ViewHolder {
         TextView textView;
     }
@@ -63,6 +72,16 @@ public class CustomAdapter extends BaseAdapter {
         }
         vh.textView.setText(dataSource.get(position).getProxUuid().getStringFormattedUuid());
         return view;
+    }
+
+    public boolean checkBeaconUUIDExists(GCelliBeacon beacon){
+        for (int i = 0; i < dataSource.size(); i++) {
+            GCelliBeacon b = dataSource.get(i);
+            if ((b.getMajorNo() == beacon.getMajorNo()) && (b.getMinorNo() == beacon.getMinorNo())){
+                return true;
+            }
+        }
+        return false;
     }
 
 }
