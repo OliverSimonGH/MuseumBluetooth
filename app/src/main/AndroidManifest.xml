@@ -22,6 +22,8 @@
 
         <activity android:name=".BeaconsListScreen"
             android:label="Search Beacons" />
+
+
     </application>
 
 </manifest>

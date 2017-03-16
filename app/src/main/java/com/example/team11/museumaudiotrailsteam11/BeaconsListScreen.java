@@ -1,5 +1,6 @@
 package com.example.team11.museumaudiotrailsteam11;
 
+import android.app.Activity;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
@@ -7,10 +8,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.widget.ListView;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import com.gcell.ibeacon.gcellbeaconscanlibrary.GCellBeaconManagerScanEvents;
 import com.gcell.ibeacon.gcellbeaconscanlibrary.GCellBeaconRegion;
@@ -18,14 +22,15 @@ import com.gcell.ibeacon.gcellbeaconscanlibrary.GCellBeaconScanManager;
 import com.gcell.ibeacon.gcellbeaconscanlibrary.GCelliBeacon;
 
 
-public class BeaconsListScreen extends AppCompatActivity implements GCellBeaconManagerScanEvents, BeaconUpdater{
+public class BeaconsListScreen extends AppCompatActivity implements GCellBeaconManagerScanEvents{
 
     private ListView lv;
     private BeaconAdapter listAdapter;
     private GCellBeaconScanManager mbtManager;
     private List<GCelliBeacon> beacons = new ArrayList<>();
-    private int dID, beaconIntervalSeconds;
-
+    private int dID, beaconsOn;
+    private Timer timer = new Timer();
+    private final int beaconIntervalTimer = 10;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,21 +44,33 @@ public class BeaconsListScreen extends AppCompatActivity implements GCellBeaconM
         mbtManager.enableBlueToothAutoSwitchOn(true);
         mbtManager.useBeaconRegions(false);
 
-        BeaconTimerTask bt = new BeaconTimerTask(getApplicationContext());
-        bt.beaconRefreshRate(10);
+        mbtManager.startScanningForBeacons();
+
+
+        TimerTask task;
+        task = new TimerTask() {
+            @Override
+            public void run() {
+                Log.i(getString(R.string.app_name), "Beacons: " + beaconsOn);
+                 beaconsOn++;
+            }
+        };
+        timer.schedule(task, 0, 1000);
     }
 
     @Override
     public void onGCellUpdateBeaconList(List<GCelliBeacon> discoveredBeacon) {
-        for (GCelliBeacon beacon : discoveredBeacon){
-            if(!listAdapter.dataSource.contains(beacon)) {
-                beacons.add(beacon);
-            } else {
-                beacons.remove(beacon);
+        if(beaconsOn %  beaconIntervalTimer == 0) {
+            for (GCelliBeacon beacon : discoveredBeacon) {
+                if (!listAdapter.dataSource.contains(beacon) ) {
+                    beacons.add(beacon);
+                } else  {
+                    beacons.remove(beacon);
+                }
             }
+            listAdapter.notifyDataSetChanged();
+            createNotification(getApplicationContext(), true, dID, beacons.size() + " Beacons Have Been Found!");
         }
-        listAdapter.notifyDataSetChanged();
-        createNotification(getApplicationContext(), true, dID, beacons.size() + " Beacons Have Been Found!");
     }
 
     @Override
@@ -107,14 +124,5 @@ public class BeaconsListScreen extends AppCompatActivity implements GCellBeaconM
 
         NotificationManager mNotificationManager = (NotificationManager) ctx.getSystemService(Context.NOTIFICATION_SERVICE);
         mNotificationManager.notify(id, notifBuilder.build());
-    }
-
-    @Override
-    public void beaconUpdater(Boolean val) {
-        if (!val){
-            mbtManager.stopScanningForBeacons();
-        } else {
-            mbtManager.startScanningForBeacons();
-        }
     }
 }
