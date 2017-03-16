@@ -15,12 +15,12 @@ import java.util.List;
 /**
  * Created by c1633899 on 12/03/2017.
  */
-public class CustomAdapter extends BaseAdapter {
+public class BeaconAdapter extends BaseAdapter {
 
     List<GCelliBeacon> dataSource, originalSource;
     LayoutInflater inflater;
 
-    public CustomAdapter(Context c, List<GCelliBeacon> dataSource) {
+    public BeaconAdapter(Context c, List<GCelliBeacon> dataSource) {
         this.dataSource = dataSource;
         inflater = LayoutInflater.from(c);
     }
@@ -45,17 +45,11 @@ public class CustomAdapter extends BaseAdapter {
         notifyDataSetChanged();
     }
 
-    public void notInRange(List<GCelliBeacon> beacons) {
-        for(GCelliBeacon b: this.dataSource) {
-            if(beacons.contains(b)) {
-                this.dataSource.remove(b);
-            }
-        }
-        this.notifyDataSetChanged();
-    }
 
     private class ViewHolder {
-        TextView textView;
+        TextView beaconUUID;
+        TextView beaconMajorNo;
+        TextView beaconMinorNo;
     }
 
     @Override
@@ -65,23 +59,16 @@ public class CustomAdapter extends BaseAdapter {
         if(view == null) {
             vh = new ViewHolder();
             view = inflater.inflate(R.layout.custom_adapter_row, null);
-            vh.textView = (TextView) view.findViewById(R.id.beaconRow);
+            vh.beaconUUID = (TextView) view.findViewById(R.id.beaconRow);
+            vh.beaconMajorNo = (TextView) view.findViewById(R.id.beaconMajorNo);
+            vh.beaconMinorNo = (TextView) view.findViewById(R.id.beaconMinorNo);
             view.setTag(vh);
         }else{
             vh = (ViewHolder) view.getTag();
         }
-        vh.textView.setText(dataSource.get(position).getProxUuid().getStringFormattedUuid());
+        vh.beaconUUID.setText(dataSource.get(position).getProxUuid().getStringFormattedUuid());
+        vh.beaconMajorNo.setText("Major No: " + dataSource.get(position).getMajorNo());
+        vh.beaconMinorNo.setText("Minor No: " + dataSource.get(position).getMinorNo());
         return view;
     }
-
-    public boolean checkBeaconUUIDExists(GCelliBeacon beacon){
-        for (int i = 0; i < dataSource.size(); i++) {
-            GCelliBeacon b = dataSource.get(i);
-            if ((b.getMajorNo() == beacon.getMajorNo()) && (b.getMinorNo() == beacon.getMinorNo())){
-                return true;
-            }
-        }
-        return false;
-    }
-
 }

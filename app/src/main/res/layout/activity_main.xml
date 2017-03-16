@@ -12,7 +12,7 @@ tools:context="com.example.team11.museumaudiotrailsteam11.MainActivity">
 <Button
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:text="Show Beacons"
+    android:text="@string/show_beacons"
     android:id="@+id/sow_beacons_button"
     android:background="@color/colorDark"
     android:textColor="@color/colorWhite"

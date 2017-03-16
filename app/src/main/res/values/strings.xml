@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Museum Audio Trails Team 11</string>
     <string name="notification">Notification</string>
+    <string name="show_beacons">Show Beacons</string>
 </resources>
