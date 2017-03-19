@@ -25,6 +25,13 @@ public class DBSQLiteHelper extends SQLiteOpenHelper{   // Extending the Android
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        db.execSQL("DROP TABLE IF EXIST" + TABLE_NAME);
+        onCreate(db);
 
+    }
+
+    @Override
+    public void onDowngrade(SQLiteDatabase db, int oldVersion, int newVersion){
+        onUpgrade(db, oldVersion, newVersion);
     }
 }
