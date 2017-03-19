@@ -4,11 +4,14 @@ import android.app.Activity;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -31,6 +34,7 @@ public class BeaconsListScreen extends AppCompatActivity implements GCellBeaconM
     private int dID, beaconsOn;
     private Timer timer = new Timer();
     private final int beaconIntervalTimer = 10;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,7 +47,6 @@ public class BeaconsListScreen extends AppCompatActivity implements GCellBeaconM
         mbtManager = new GCellBeaconScanManager(this);
         mbtManager.enableBlueToothAutoSwitchOn(true);
         mbtManager.useBeaconRegions(false);
-
         mbtManager.startScanningForBeacons();
 
 
@@ -60,14 +63,14 @@ public class BeaconsListScreen extends AppCompatActivity implements GCellBeaconM
 
     @Override
     public void onGCellUpdateBeaconList(List<GCelliBeacon> discoveredBeacon) {
-        if(beaconsOn %  beaconIntervalTimer == 0) {
-            for (GCelliBeacon beacon : discoveredBeacon) {
-                if (!listAdapter.dataSource.contains(beacon) ) {
-                    beacons.add(beacon);
-                } else  {
-                    beacons.remove(beacon);
+        if(beaconsOn % beaconIntervalTimer == 0) {
+            for (GCelliBeacon beacon : discoveredBeacon){
+                    if (!listAdapter.dataSource.equals(beacon)) {
+                        beacons.add(beacon);
+                    } else  {
+                        beacons.remove(beacon);
+                    }
                 }
-            }
             listAdapter.notifyDataSetChanged();
             createNotification(getApplicationContext(), true, dID, beacons.size() + " Beacons Have Been Found!");
         }

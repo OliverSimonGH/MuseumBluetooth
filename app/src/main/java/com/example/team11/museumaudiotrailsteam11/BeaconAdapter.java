@@ -17,7 +17,7 @@ import java.util.List;
  */
 public class BeaconAdapter extends BaseAdapter {
 
-    List<GCelliBeacon> dataSource, originalSource;
+    List<GCelliBeacon> dataSource;
     LayoutInflater inflater;
 
     public BeaconAdapter(Context c, List<GCelliBeacon> dataSource) {
@@ -70,5 +70,15 @@ public class BeaconAdapter extends BaseAdapter {
         vh.beaconMajorNo.setText("Major No: " + dataSource.get(position).getMajorNo());
         vh.beaconMinorNo.setText("Minor No: " + dataSource.get(position).getMinorNo());
         return view;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        BeaconAdapter that = (BeaconAdapter) o;
+
+        return dataSource.equals(that.dataSource);
     }
 }
