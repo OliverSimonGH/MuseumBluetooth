@@ -11,9 +11,9 @@ public class DBConnector {
     DBSQLiteHelper openHelper;  // Declaring a new SQLiteOpenHelper
     String TABLE_NAME = "ListExhibits"; // Calling the Table Name from the open helper
     String COL_ID = "Exhibit_ID";   // The Column id for the Exhibits table
-    String COl_Exhibit = "Exhibit_Txt";
+    String COl_Exhibit = "Exhibit_Txt"; // The Column that stores the exhibit.
 
-    public DBConnector(Context ctx){
+    public DBConnector(Context ctx){    // Constructor for the DB Connector
         openHelper = new DBSQLiteHelper(ctx);
     }
 
@@ -26,7 +26,7 @@ public class DBConnector {
         return rowId;
     }
 
-    public int removeItem(String id){
+    public int removeExhibit(String id){
         SQLiteDatabase db = openHelper.getWritableDatabase();
         String exhibitLocation = DBSQLiteHelper.COL_ID + " = ?";
         String[] args = {id};
