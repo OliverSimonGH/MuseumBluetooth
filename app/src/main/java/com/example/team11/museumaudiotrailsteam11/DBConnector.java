@@ -11,7 +11,7 @@ public class DBConnector {
     DBSQLiteHelper openHelper;  // Declaring a new SQLiteOpenHelper
     String TABLE_NAME = "ListExhibits"; // Calling the Table Name from the open helper
     String COL_ID = "Exhibit_ID";   // The Column id for the Exhibits table
-    String COl_Exhibit = "Exhibit_Txt"; 
+    String COl_Exhibit = "Exhibit_Txt";
 
     public DBConnector(Context ctx){
         openHelper = new DBSQLiteHelper(ctx);
