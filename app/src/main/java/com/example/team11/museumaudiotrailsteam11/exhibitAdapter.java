@@ -9,6 +9,7 @@ import android.widget.Filter;
 import android.widget.Filterable;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by c1630186 on 20/03/2017.
@@ -21,7 +22,7 @@ public class exhibitAdapter extends BaseAdapter implements Filterable {
 
     public exhibitAdapter(Context context){
         exhibitConnector = new DBConnector(context);
-        Map<Long, String > exhibits = exhibitConnector.getI
+        Map<Long, String > exhibits = exhibitConnector.getExhibits(null);
 
     }
 

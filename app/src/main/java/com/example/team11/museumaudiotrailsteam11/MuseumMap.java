@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-public class Map extends AppCompatActivity {
+public class MuseumMap extends AppCompatActivity {
 
     Button btn1;
     Button btn2;

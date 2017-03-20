@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by c1630186 on 19/03/2017.
@@ -56,7 +57,7 @@ public class DBConnector {
             do{
                 long id = myCursor.getLong(0);
                 String exhibit = myCursor.getString(1);
-                exhibit.put(id, exhibit);
+                exhibits.put(id, exhibit);
             }while (myCursor.moveToNext());
 
         }
