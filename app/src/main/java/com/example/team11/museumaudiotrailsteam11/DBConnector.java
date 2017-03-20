@@ -12,6 +12,7 @@ public class DBConnector {
     String TABLE_NAME = "ListExhibits"; // Calling the Table Name from the open helper
     String COL_ID = "Exhibit_ID";   // The Column id for the Exhibits table
     String COl_Exhibit = "Exhibit_Txt"; // The Column that stores the exhibit.
+    String COL_ExhibitUUID = "beaconUUID";
 
     public DBConnector(Context ctx){    // Constructor for the DB Connector
         openHelper = new DBSQLiteHelper(ctx);   // Declaring a new SQLiteOpenHelper to use in the DB Connector
@@ -21,6 +22,7 @@ public class DBConnector {
         SQLiteDatabase db = openHelper.getWritableDatabase();
         ContentValues cv = new ContentValues();
         cv.put("Exhibit_Txt", exhibit);
+        cv.put("beaconUUID", exhibit);
         long rowId = db.insert(DBSQLiteHelper.TABLE_NAME, null, cv);
         db.close();
         return rowId;
