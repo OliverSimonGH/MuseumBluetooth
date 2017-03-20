@@ -20,13 +20,14 @@ public class DBSQLiteHelper extends SQLiteOpenHelper{   // Extending the Android
     public void onCreate(SQLiteDatabase db) {   // OnCreate Method - This is what the Db does when its first created
         String create = MessageFormat.format("CREATE TABLE IF NOT EXISTS {0}({1} INTEGER PRIMARY KEY AUTOINCREMENT, {2} VARCHAR);", TABLE_NAME, COL_ID, COL_Exhibit); // Made a formatted string with some executable SQL Code
         db.execSQL(create); // Executes the SQL Code above.
-        db.execSQL("CREATE TABLE IF NOT EXISTS History(minorID INTEGER, majorID INTEGER, beaconUUID VARCHAR);");
+        db.execSQL("CREATE TABLE IF NOT EXISTS History(minorID INTEGER, majorID INTEGER, beaconUUID VARCHAR);"); // Creates the history table when the db is created.
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXIST" + TABLE_NAME);
-        onCreate(db);
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {  // onUpgrade Method - When the Database is upgraded, do  the following...
+        db.execSQL("DROP TABLE IF EXIST" + TABLE_NAME); // Drop the Exhibit table
+        db.execSQL("DROP TABLE IF EXIST History");  // DRop the History table
+        onCreate(db);   // Re-Create the DB
 
     }
 

@@ -8,13 +8,13 @@ import android.database.sqlite.SQLiteDatabase;
  * Created by c1630186 on 19/03/2017.
  */
 public class DBConnector {
-    DBSQLiteHelper openHelper;  // Declaring a new SQLiteOpenHelper
+    DBSQLiteHelper openHelper;  // Instanciating a new SQLiteOpenHelper
     String TABLE_NAME = "ListExhibits"; // Calling the Table Name from the open helper
     String COL_ID = "Exhibit_ID";   // The Column id for the Exhibits table
     String COl_Exhibit = "Exhibit_Txt"; // The Column that stores the exhibit.
 
     public DBConnector(Context ctx){    // Constructor for the DB Connector
-        openHelper = new DBSQLiteHelper(ctx);
+        openHelper = new DBSQLiteHelper(ctx);   // Declaring a new SQLiteOpenHelper to use in the DB Connector
     }
 
     public long addExhibit(String exhibit){
