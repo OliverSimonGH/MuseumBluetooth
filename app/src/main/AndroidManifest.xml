@@ -20,7 +20,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".BeaconsListScreen"
+        <activity android:name=".BeaconScan.BeaconsListScreen"
             android:label="Search Beacons" />
 
 

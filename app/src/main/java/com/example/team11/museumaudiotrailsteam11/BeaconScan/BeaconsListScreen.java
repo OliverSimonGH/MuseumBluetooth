@@ -1,17 +1,15 @@
-package com.example.team11.museumaudiotrailsteam11;
+package com.example.team11.museumaudiotrailsteam11.BeaconScan;
 
-import android.app.Activity;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -19,6 +17,9 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import com.example.team11.museumaudiotrailsteam11.BeaconScan.BeaconSearchAdapter;
+import com.example.team11.museumaudiotrailsteam11.MainActivity;
+import com.example.team11.museumaudiotrailsteam11.R;
 import com.gcell.ibeacon.gcellbeaconscanlibrary.GCellBeaconManagerScanEvents;
 import com.gcell.ibeacon.gcellbeaconscanlibrary.GCellBeaconRegion;
 import com.gcell.ibeacon.gcellbeaconscanlibrary.GCellBeaconScanManager;
@@ -28,7 +29,7 @@ import com.gcell.ibeacon.gcellbeaconscanlibrary.GCelliBeacon;
 public class BeaconsListScreen extends AppCompatActivity implements GCellBeaconManagerScanEvents{
 
     private ListView lv;
-    private BeaconAdapter listAdapter;
+    private BeaconSearchAdapter listAdapter;
     private GCellBeaconScanManager mbtManager;
     private List<GCelliBeacon> beacons = new ArrayList<>();
     private int dID, beaconsOn;
@@ -38,9 +39,9 @@ public class BeaconsListScreen extends AppCompatActivity implements GCellBeaconM
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.custom_adapter_list);
+        setContentView(R.layout.beacon_search_adapter_list);
 
-        listAdapter = new BeaconAdapter(this, beacons);
+        listAdapter = new BeaconSearchAdapter(this, beacons);
         lv = (ListView) findViewById(R.id.theListView);
         lv.setAdapter(listAdapter);
 
@@ -49,6 +50,13 @@ public class BeaconsListScreen extends AppCompatActivity implements GCellBeaconM
         mbtManager.useBeaconRegions(false);
         mbtManager.startScanningForBeacons();
 
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                //Add to beacons history database
+                //Open Webpage for the specific beacon
+            }
+        });
 
         TimerTask task;
         task = new TimerTask() {

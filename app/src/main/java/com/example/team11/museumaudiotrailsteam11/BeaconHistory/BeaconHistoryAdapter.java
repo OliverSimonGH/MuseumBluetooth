@@ -1,4 +1,4 @@
-package com.example.team11.museumaudiotrailsteam11;
+package com.example.team11.museumaudiotrailsteam11.BeaconHistory;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -7,20 +7,18 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import com.gcell.ibeacon.gcellbeaconscanlibrary.GCelliBeacon;
+import com.example.team11.museumaudiotrailsteam11.R;
 
 import java.util.List;
 
-
 /**
- * Created by c1633899 on 12/03/2017.
+ * Created by c1633899 on 19/03/2017.
  */
-public class BeaconAdapter extends BaseAdapter {
-
-    List<GCelliBeacon> dataSource;
+public class BeaconHistoryAdapter extends BaseAdapter {
+    List<BluetoothBeacon> dataSource;
     LayoutInflater inflater;
 
-    public BeaconAdapter(Context c, List<GCelliBeacon> dataSource) {
+    public BeaconHistoryAdapter(Context c, List<BluetoothBeacon> dataSource) {
         this.dataSource = dataSource;
         inflater = LayoutInflater.from(c);
     }
@@ -58,7 +56,7 @@ public class BeaconAdapter extends BaseAdapter {
 
         if(view == null) {
             vh = new ViewHolder();
-            view = inflater.inflate(R.layout.custom_adapter_row, null);
+            view = inflater.inflate(R.layout.beacon_history_row, null);
             vh.beaconUUID = (TextView) view.findViewById(R.id.beaconRow);
             vh.beaconMajorNo = (TextView) view.findViewById(R.id.beaconMajorNo);
             vh.beaconMinorNo = (TextView) view.findViewById(R.id.beaconMinorNo);
@@ -66,7 +64,7 @@ public class BeaconAdapter extends BaseAdapter {
         }else{
             vh = (ViewHolder) view.getTag();
         }
-        vh.beaconUUID.setText(dataSource.get(position).getProxUuid().getStringFormattedUuid());
+        vh.beaconUUID.setText(dataSource.get(position).getBeaconUUID());
         vh.beaconMajorNo.setText("Major No: " + dataSource.get(position).getMajorNo());
         vh.beaconMinorNo.setText("Minor No: " + dataSource.get(position).getMinorNo());
         return view;
@@ -77,8 +75,9 @@ public class BeaconAdapter extends BaseAdapter {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        BeaconAdapter that = (BeaconAdapter) o;
+        BeaconHistoryAdapter that = (BeaconHistoryAdapter) o;
 
         return dataSource.equals(that.dataSource);
     }
 }
+

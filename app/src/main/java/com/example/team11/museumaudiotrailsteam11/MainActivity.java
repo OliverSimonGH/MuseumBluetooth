@@ -4,7 +4,9 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
+
+import com.example.team11.museumaudiotrailsteam11.BeaconHistory.BeaconHistory;
+import com.example.team11.museumaudiotrailsteam11.BeaconScan.BeaconsListScreen;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -14,8 +16,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public void goToBeaconsPage (View view) {
+    public void goToBeaconsSearchPage (View view) {
         Intent i = new Intent(MainActivity.this, BeaconsListScreen.class);
+        startActivity(i);
+    }
+
+
+    public void goToBeaconsHistoryPage(View view) {
+        Intent i = new Intent(MainActivity.this, BeaconHistory.class);
         startActivity(i);
     }
 }
