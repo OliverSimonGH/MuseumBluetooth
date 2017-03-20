@@ -2,13 +2,16 @@ package com.example.team11.museumaudiotrailsteam11;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+
+import java.util.HashMap;
 
 /**
  * Created by c1630186 on 19/03/2017.
  */
 public class DBConnector {
-    DBSQLiteHelper openHelper;  // Instanciating a new SQLiteOpenHelper
+    DBSQLiteHelper openHelper;  // Instantiating a new SQLiteOpenHelper
     String TABLE_NAME = "ListExhibits"; // Calling the Table Name from the open helper
     String COL_ID = "Exhibit_ID";   // The Column id for the Exhibits table
     String COl_Exhibit = "Exhibit_Txt"; // The Column that stores the exhibit.
@@ -36,4 +39,27 @@ public class DBConnector {
         return deleted;
     }
 
+    public Map<Long, String> getExhibits(String queryterm){
+        SQLiteDatabase db = openHelper.getWritableDatabase();
+        String[] exhibitColumns = {DBSQLiteHelper.COL_ID, DBSQLiteHelper.COL_Exhibit, DBSQLiteHelper.COL_ExhibitUUID};
+        String location = null;
+        String locationArguments[] = null;
+        if (queryterm != null){
+            location = DBSQLiteHelper.COL_Exhibit + " = ?";
+            locationArguments = new String[]{queryterm};
+        }
+        Cursor myCursor = db.query(DBSQLiteHelper.TABLE_NAME, exhibitColumns, location, locationArguments, null, null, null);
+        myCursor.moveToFirst();
+
+        Map<Long, String> exhibits = new HashMap<>();
+        if(myCursor.getCount() != 0){
+            do{
+                long id = myCursor.getLong(0);
+                String exhibit = myCursor.getString(1);
+                exhibit.put(id, exhibit);
+            }while (myCursor.moveToNext());
+
+        }
+        return exhibits;
+    }
 }
