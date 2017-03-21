@@ -8,11 +8,11 @@ import java.text.MessageFormat;
 /**
  * Created by c1630186 on 12/03/2017.
  */
-public class DBSQLiteHelper extends SQLiteOpenHelper{   // Extending the Android SQLDB class that offers all the SQL executable commands
+public class  DBSQLiteHelper extends SQLiteOpenHelper{   // Extending the Android SQLDB class that offers all the SQL executable commands
     public static final String TABLE_NAME = "ListExhibits"; // First Table which is a List of Exhibits. Note this can change if needed.
     public static final String COL_ID = "Exhibit_ID";   // Name of First Column is Exhibit ID. Its a STRING as "Exhibit_ID" is a String
     public static final String COL_Exhibit = "Exhibit_Txt";    // THe Column that'll contain the name of the Exhibit
-    public static final int DATABASE_VERSION = 1;   // This is the first version of our DB
+    public static final int DATABASE_VERSION = 1;   // This is the first version of   our DB
     public static final String DATABASE_NAME = "Exhibits.db";   // Name of the Database
 
     public DBSQLiteHelper(Context context){ super(context, DATABASE_NAME, null, DATABASE_VERSION);} // Constructor for the DB
