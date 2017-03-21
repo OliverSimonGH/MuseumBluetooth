@@ -36,7 +36,6 @@ public class BeaconHistory extends AppCompatActivity{
 
 //        create the database
         database = new DBSQLiteHelper(this);
-
         database.dropTables();
 
         for (int i = 0; i < 5 ; i++) {

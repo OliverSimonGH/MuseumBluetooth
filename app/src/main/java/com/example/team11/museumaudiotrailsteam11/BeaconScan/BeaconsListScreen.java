@@ -71,11 +71,11 @@ public class BeaconsListScreen extends AppCompatActivity implements GCellBeaconM
     @Override
     public void onGCellUpdateBeaconList(List<GCelliBeacon> discoveredBeacon) {
         if(beaconsOn % beaconIntervalTimer == 0) {
-            for (int i = 0; i < discoveredBeacon.size(); i++) {
-                if (!listAdapter.dataSource.get(i).equals(discoveredBeacon.get(i))) {
-                    beacons.add(discoveredBeacon.get(i));
+            for (GCelliBeacon beacon : discoveredBeacon){
+                if (!listAdapter.dataSource.contains(beacon)) {
+                    beacons.add(beacon);
                 } else  {
-                    beacons.remove(discoveredBeacon.get(i));
+                    beacons.remove(beacon);
                 }
             }
             listAdapter.notifyDataSetChanged();
