@@ -17,7 +17,6 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import com.example.team11.museumaudiotrailsteam11.BeaconScan.BeaconSearchAdapter;
 import com.example.team11.museumaudiotrailsteam11.MainActivity;
 import com.example.team11.museumaudiotrailsteam11.R;
 import com.gcell.ibeacon.gcellbeaconscanlibrary.GCellBeaconManagerScanEvents;

@@ -5,10 +5,10 @@ package com.example.team11.museumaudiotrailsteam11.BeaconHistory;
  */
 public class BluetoothBeacon {
     private String beaconUUID;
-    private int majorNo;
-    private int minorNo;
+    private String majorNo;
+    private String minorNo;
 
-    public BluetoothBeacon(String beaconUUID, int majorNo, int minorNo) {
+    public BluetoothBeacon(String beaconUUID, String majorNo, String minorNo) {
         this.beaconUUID = beaconUUID;
         this.majorNo = majorNo;
         this.minorNo = minorNo;
@@ -22,19 +22,19 @@ public class BluetoothBeacon {
         this.beaconUUID = beaconUUID;
     }
 
-    public int getMajorNo() {
+    public String getMajorNo() {
         return majorNo;
     }
 
-    public void setMajorNo(int majorNo) {
+    public void setMajorNo(String majorNo) {
         this.majorNo = majorNo;
     }
 
-    public int getMinorNo() {
+    public String getMinorNo() {
         return minorNo;
     }
 
-    public void setMinorNo(int minorNo) {
+    public void setMinorNo(String minorNo) {
         this.minorNo = minorNo;
     }
 }

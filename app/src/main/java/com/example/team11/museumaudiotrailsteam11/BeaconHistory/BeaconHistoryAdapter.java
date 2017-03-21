@@ -38,11 +38,15 @@ public class BeaconHistoryAdapter extends BaseAdapter {
         return 0;
     }
 
-    public void remove(int i) {
-        this.dataSource.remove(i);
+    public void remove(String beaconUUID, String beaconMajorNo, String beaconMinorNo) {
+        for (int i = 0; i < dataSource.size(); i++) {
+            BluetoothBeacon b = dataSource.get(i);
+            if ((b.getBeaconUUID() == beaconUUID) && (b.getMajorNo() == beaconMajorNo) && (b.getMinorNo() == beaconMinorNo)){
+                this.dataSource.remove(b);
+            }
+        }
         notifyDataSetChanged();
     }
-
 
     private class ViewHolder {
         TextView beaconUUID;
@@ -78,6 +82,18 @@ public class BeaconHistoryAdapter extends BaseAdapter {
         BeaconHistoryAdapter that = (BeaconHistoryAdapter) o;
 
         return dataSource.equals(that.dataSource);
+    }
+
+    public String getBeaconUUID(int i) {
+        return dataSource.get(i).getBeaconUUID();
+    }
+
+    public String getBeaconMajorNo(int i) {
+        return dataSource.get(i).getMajorNo();
+    }
+
+    public String getBeaconMinorNo(int i) {
+        return dataSource.get(i).getMinorNo();
     }
 }
 
