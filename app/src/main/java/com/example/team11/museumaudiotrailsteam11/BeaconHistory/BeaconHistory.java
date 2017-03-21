@@ -1,7 +1,11 @@
 package com.example.team11.museumaudiotrailsteam11.BeaconHistory;
 
+import android.content.ActivityNotFoundException;
+import android.content.ComponentName;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -88,26 +92,26 @@ public class BeaconHistory extends AppCompatActivity{
             }
         });
 
-//        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-////                http://stackoverflow.com/questions/12013416/is-there-any-way-in-android-to-force-open-a-link-to-open-in-chrome
-////                get item clicked URL
-//                String url = "http://www.google.com";
-//                try {
-//                    Intent i = new Intent("android.intent.action.MAIN");
-//                    i.setComponent(ComponentName.unflattenFromString("com.android.chrome/com.android.chrome.Main"));
-//                    i.addCategory("android.intent.category.LAUNCHER");
-//                    i.setData(Uri.parse(url));
-//                    startActivity(i);
-//                }
-//                catch(ActivityNotFoundException e) {
-//                    // Chrome is not installed
-//                    Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-//                    startActivity(i);
-//                }
-//            }
-//        });
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                http://stackoverflow.com/questions/12013416/is-there-any-way-in-android-to-force-open-a-link-to-open-in-chrome
+//                get item clicked URL
+                String url = "http://www.google.com";
+                try {
+                    Intent i = new Intent("android.intent.action.MAIN");
+                    i.setComponent(ComponentName.unflattenFromString("com.android.chrome/com.android.chrome.Main"));
+                    i.addCategory("android.intent.category.LAUNCHER");
+                    i.setData(Uri.parse(url));
+                    startActivity(i);
+                }
+                catch(ActivityNotFoundException e) {
+                    // Chrome is not installed
+                    Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                    startActivity(i);
+                }
+            }
+        });
     }
 
     public void addBeaconsToList(){
