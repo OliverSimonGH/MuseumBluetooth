@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">Museum Audio Trails Team 11</string>
+<<<<<<< HEAD
     <string name="historyFeed">History Feed</string>
+=======
+    <string name="notification">Notification</string>
+    <string name="show_beacons">Show Beacons</string>
+    <string name="exhibits_history">Exhibits History</string>
+>>>>>>> 72b5709be8ce02022bfc974e7a7e7f1be05b2a7f
 </resources>
