@@ -1,8 +1,10 @@
-package com.example.team11.museumaudiotrailsteam11;
+package com.example.team11.museumaudiotrailsteam11.Database;
 
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
+
+import com.example.team11.museumaudiotrailsteam11.Database.DBSQLiteHelper;
 
 /**
  * Created by c1630186 on 19/03/2017.
