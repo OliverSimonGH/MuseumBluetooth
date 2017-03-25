@@ -18,7 +18,7 @@ android {
         }
     }
     repositories {
-        flatDir{
+        flatDir {
             dirs 'libs'
         }
     }
@@ -27,6 +27,11 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
+    compile(name: 'gcellbeaconscanlibrary-release-v1-01', ext: 'aar')
     compile 'com.android.support:appcompat-v7:25.1.1'
-    compile(name:'gcellbeaconscanlibrary-release-v1-01', ext: 'aar')
+    compile 'com.android.support:design:25.1.1'
+    // The below dependencies are needed for the Android Bottom Nav Bar widget. Please do not delete for now.
+    compile 'com.android.support:appcompat-v7:25.1.0'
+    compile 'com.android.support:design:25.1.0'
+    compile 'com.android.support:support-v4:25.1.0'
 }
