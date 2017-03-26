@@ -74,7 +74,7 @@ public class DBSQLiteHelper extends SQLiteOpenHelper{   // Extending the Android
     }
 
     public Cursor getHistoryItemID(String beaconUUID, String beaconMajorNo, String beaconMinorNo){
-        SQLiteDatabase db = this.getWritableDatabase();
+         
         String query = "SELECT * FROM `" + HISTORY_NAME +"` WHERE `" + BEACON_UUID + "` = '" + beaconUUID + "' AND `" + BEACON_MAJORNO + "` = '" + beaconMajorNo + "' AND `" + BEACON_MINORNO + "` = '" + beaconMinorNo + "'";
         Cursor data = db.rawQuery(query, null);
         return data;
