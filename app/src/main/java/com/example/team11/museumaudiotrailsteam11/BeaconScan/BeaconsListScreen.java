@@ -6,6 +6,7 @@ import android.content.ActivityNotFoundException;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
@@ -15,12 +16,14 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import com.example.team11.museumaudiotrailsteam11.BeaconHistory.BluetoothBeacon;
 import com.example.team11.museumaudiotrailsteam11.Database.DBSQLiteHelper;
 import com.example.team11.museumaudiotrailsteam11.MainActivity;
 import com.example.team11.museumaudiotrailsteam11.R;
@@ -35,7 +38,7 @@ public class BeaconsListScreen extends AppCompatActivity implements GCellBeaconM
     private ListView lv;
     private BeaconSearchAdapter listAdapter;
     private GCellBeaconScanManager mbtManager;
-    private List<GCelliBeacon> beacons = new ArrayList<>();
+    private List<BluetoothBeacon> beacons = new ArrayList<>();
     private int dID, beaconsOn;
     private Timer timer = new Timer();
     private final int beaconIntervalTimer = 5;
@@ -46,6 +49,7 @@ public class BeaconsListScreen extends AppCompatActivity implements GCellBeaconM
         super.onCreate(savedInstanceState);
         setContentView(R.layout.beacon_search_adapter_list);
         database = new DBSQLiteHelper(this);
+        database.createTables();
 
         listAdapter = new BeaconSearchAdapter(this, beacons);
         lv = (ListView) findViewById(R.id.theListView);
@@ -59,16 +63,17 @@ public class BeaconsListScreen extends AppCompatActivity implements GCellBeaconM
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
                 String beaconUUID = listAdapter.getBeaconUUID(position);
                 String beaconMajorNo = listAdapter.getBeaconMajorNo(position);
                 String beaconMinorNo = listAdapter.getBeaconMinorNo(position);
-
-                database.insertHistoryData(beaconUUID, Integer.parseInt(beaconMajorNo), Integer.parseInt(beaconMinorNo), null);
+                String beaconName = listAdapter.getBeaconName(position);
+                String beaconURL = listAdapter.getBeaconURL(position);
+//
+                database.insertHistoryData(beaconUUID, Integer.parseInt(beaconMajorNo), Integer.parseInt(beaconMinorNo), beaconName, beaconURL);
 
 //                http://stackoverflow.com/questions/12013416/is-there-any-way-in-android-to-force-open-a-link-to-open-in-chrome
 //                get item clicked URL
-//                openChrome();
+                openChrome(beaconURL);
             }
         });
 
@@ -88,10 +93,22 @@ public class BeaconsListScreen extends AppCompatActivity implements GCellBeaconM
         if(beaconsOn % beaconIntervalTimer == 0) {
             listAdapter.dataSource.clear();
             for (GCelliBeacon beacon : discoveredBeacon){
-                beacons.add(beacon);
+                addBeaconsToList(beacon);
+                listAdapter.notifyDataSetChanged();
             }
-            listAdapter.notifyDataSetChanged();
             createNotification(getApplicationContext(), true, dID, beacons.size() + " Beacons Have Been Found!");
+        }
+    }
+
+    private void addBeaconsToList(GCelliBeacon beacon) {
+//          https://www.youtube.com/watch?v=nY2bYJyGty8
+        Cursor data = database.getExhibit(beacon.getProxUuid().getStringFormattedUuid(), beacon.getMajorNo(), beacon.getMinorNo());
+        if (data.getCount() == 0){
+            Toast.makeText(getApplicationContext(), "No beacons found in db", Toast.LENGTH_SHORT).show();
+        } else {
+            while (data.moveToNext()){
+                beacons.add(new BluetoothBeacon(data.getString(1), data.getString(2), data.getString(3), data.getString(4), data.getString(5)));
+            }
         }
     }
 
@@ -161,5 +178,11 @@ public class BeaconsListScreen extends AppCompatActivity implements GCellBeaconM
 
         NotificationManager mNotificationManager = (NotificationManager) ctx.getSystemService(Context.NOTIFICATION_SERVICE);
         mNotificationManager.notify(id, notifBuilder.build());
+    }
+
+    public void addExhibitData(String beaconUUID, int beaconMajorNo, int beaconMinorNo, String beaconName, String beaconURL){
+        boolean insertData = database.insertExhibitData(beaconUUID, beaconMajorNo, beaconMinorNo, beaconName, beaconURL);
+        if (insertData) Toast.makeText(getApplicationContext(), "Successfully Added Data", Toast.LENGTH_SHORT).show();
+        else Toast.makeText(getApplicationContext(), "Error Inserting Data", Toast.LENGTH_SHORT).show();
     }
 }

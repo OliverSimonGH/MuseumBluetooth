@@ -7,12 +7,15 @@ public class BluetoothBeacon {
     private String beaconUUID;
     private String majorNo;
     private String minorNo;
-    private String URL;
+    private String name;
+    private String url;
 
-    public BluetoothBeacon(String beaconUUID, String majorNo, String minorNo, String URL) {
+    public BluetoothBeacon(String beaconUUID, String majorNo, String minorNo, String name, String url) {
         this.beaconUUID = beaconUUID;
         this.majorNo = majorNo;
         this.minorNo = minorNo;
+        this.name = name;
+        this.url = url;
     }
 
     public String getBeaconUUID() {
@@ -39,11 +42,19 @@ public class BluetoothBeacon {
         this.minorNo = minorNo;
     }
 
-    public String getURL() {
-        return URL;
+    public String getName() {
+        return name;
     }
 
-    public void setURL(String URL) {
-        this.URL = URL;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 }

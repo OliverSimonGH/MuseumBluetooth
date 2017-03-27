@@ -93,19 +93,8 @@ public class BeaconHistory extends AppCompatActivity{
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 //                http://stackoverflow.com/questions/12013416/is-there-any-way-in-android-to-force-open-a-link-to-open-in-chrome
 //                get item clicked URL
-                String beaconUUID = listAdapter.getBeaconUUID(position);
-                String beaconMajorNo = listAdapter.getBeaconMajorNo(position);
-                String beaconMinorNo = listAdapter.getBeaconMinorNo(position);
-                Cursor data = database.getHistoryItemID(beaconUUID, beaconMajorNo, beaconMinorNo);
-
-                int itemID = -1;
-                while (data.moveToNext()){
-                    itemID = data.getInt(0);
-                }
-                if (itemID > -1) {
-                    String url = database.GetHistoryURL(itemID).getString(0);
-                    openChrome(url);
-                } else Toast.makeText(getApplicationContext(), "Cannot find URL", Toast.LENGTH_SHORT).show();
+                String beaconURL = listAdapter.getBeaconURL(position);
+                openChrome(beaconURL);
             }
         });
     }
@@ -131,14 +120,16 @@ public class BeaconHistory extends AppCompatActivity{
             Toast.makeText(getApplicationContext(), "No beacons found", Toast.LENGTH_SHORT).show();
         } else {
             while (contents.moveToNext()){
-                beacons.add(new BluetoothBeacon(contents.getString(1), contents.getString(2), contents.getString(3), contents.getString(4)));
+                beacons.add(new BluetoothBeacon(contents.getString(1), contents.getString(2), contents.getString(3), contents.getString(4), contents.getString(5)));
             }
         }
     }
 
-    public void addData(String beaconUUID, int beaconMajorNo, int beaconMinorNo, String beaconURL){
-        boolean insertData = database.insertHistoryData(beaconUUID, beaconMajorNo, beaconMinorNo, beaconURL);
+    public void addHistoryData(String beaconUUID, int beaconMajorNo, int beaconMinorNo, String beaconName, String beaconURL){
+        boolean insertData = database.insertHistoryData(beaconUUID, beaconMajorNo, beaconMinorNo, beaconName, beaconURL);
         if (insertData) Toast.makeText(getApplicationContext(), "Successfully Added Data", Toast.LENGTH_SHORT).show();
         else Toast.makeText(getApplicationContext(), "Error Inserting Data", Toast.LENGTH_SHORT).show();
     }
+
+
 }
