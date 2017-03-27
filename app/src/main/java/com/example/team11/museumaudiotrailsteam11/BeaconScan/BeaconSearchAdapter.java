@@ -51,6 +51,7 @@ public class BeaconSearchAdapter extends BaseAdapter {
         TextView beaconUUID;
         TextView beaconMajorNo;
         TextView beaconMinorNo;
+        TextView beaconProximity;
     }
 
     @Override
@@ -60,26 +61,32 @@ public class BeaconSearchAdapter extends BaseAdapter {
         if(view == null) {
             vh = new ViewHolder();
             view = inflater.inflate(R.layout.beacon_search_adapter_row, null);
-            vh.beaconUUID = (TextView) view.findViewById(R.id.beaconRow);
+            vh.beaconUUID = (TextView) view.findViewById(R.id.beaconUUID);
             vh.beaconMajorNo = (TextView) view.findViewById(R.id.beaconMajorNo);
             vh.beaconMinorNo = (TextView) view.findViewById(R.id.beaconMinorNo);
+//            vh.beaconProximity = (TextView) view.findViewById(R.id.beaconProximity);
             view.setTag(vh);
         }else{
             vh = (ViewHolder) view.getTag();
         }
         vh.beaconUUID.setText(dataSource.get(position).getProxUuid().getStringFormattedUuid());
-        vh.beaconMajorNo.setText("Major No: " + dataSource.get(position).getMajorNo());
-        vh.beaconMinorNo.setText("Minor No: " + dataSource.get(position).getMinorNo());
+        vh.beaconMajorNo.setText("Major: " + dataSource.get(position).getMajorNo());
+        vh.beaconMinorNo.setText("Minor: " + dataSource.get(position).getMinorNo());
+//        vh.beaconProximity.setText("Proximity: " + dataSource.get(position).getProximity().toString());
         return view;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        BeaconSearchAdapter that = (BeaconSearchAdapter) o;
-
-        return dataSource.equals(that.dataSource);
+    public String getBeaconUUID(int i) {
+        return dataSource.get(i).getProxUuid().getStringFormattedUuid();
     }
+
+    public String getBeaconMajorNo(int i) {
+        return dataSource.get(i).getMajorNo();
+    }
+
+    public String getBeaconMinorNo(int i) {
+        return dataSource.get(i).getMinorNo();
+    }
+
+
 }

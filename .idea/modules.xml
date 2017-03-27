@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/MuseumAudioTrailsTeam11.iml" filepath="$PROJECT_DIR$/MuseumAudioTrailsTeam11.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cm6122_museum_team11.iml" filepath="$PROJECT_DIR$/cm6122_museum_team11.iml" />
     </modules>
   </component>
 </project>

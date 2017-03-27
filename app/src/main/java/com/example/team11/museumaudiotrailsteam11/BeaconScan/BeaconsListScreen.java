@@ -13,6 +13,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -20,6 +21,7 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import com.example.team11.museumaudiotrailsteam11.Database.DBSQLiteHelper;
 import com.example.team11.museumaudiotrailsteam11.MainActivity;
 import com.example.team11.museumaudiotrailsteam11.R;
 import com.gcell.ibeacon.gcellbeaconscanlibrary.GCellBeaconManagerScanEvents;
@@ -36,12 +38,14 @@ public class BeaconsListScreen extends AppCompatActivity implements GCellBeaconM
     private List<GCelliBeacon> beacons = new ArrayList<>();
     private int dID, beaconsOn;
     private Timer timer = new Timer();
-    private final int beaconIntervalTimer = 10;
+    private final int beaconIntervalTimer = 5;
+    private DBSQLiteHelper database;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.beacon_search_adapter_list);
+        database = new DBSQLiteHelper(this);
 
         listAdapter = new BeaconSearchAdapter(this, beacons);
         lv = (ListView) findViewById(R.id.theListView);
@@ -55,22 +59,16 @@ public class BeaconsListScreen extends AppCompatActivity implements GCellBeaconM
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                need to add items clicked to the database
+
+                String beaconUUID = listAdapter.getBeaconUUID(position);
+                String beaconMajorNo = listAdapter.getBeaconMajorNo(position);
+                String beaconMinorNo = listAdapter.getBeaconMinorNo(position);
+
+                database.insertHistoryData(beaconUUID, Integer.parseInt(beaconMajorNo), Integer.parseInt(beaconMinorNo), null);
+
 //                http://stackoverflow.com/questions/12013416/is-there-any-way-in-android-to-force-open-a-link-to-open-in-chrome
 //                get item clicked URL
-                String url = "http://www.google.com";
-                try {
-                    Intent i = new Intent("android.intent.action.MAIN");
-                    i.setComponent(ComponentName.unflattenFromString("com.android.chrome/com.android.chrome.Main"));
-                    i.addCategory("android.intent.category.LAUNCHER");
-                    i.setData(Uri.parse(url));
-                    startActivity(i);
-                }
-                catch(ActivityNotFoundException e) {
-                    // Chrome is not installed
-                    Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-                    startActivity(i);
-                }
+//                openChrome();
             }
         });
 
@@ -79,7 +77,7 @@ public class BeaconsListScreen extends AppCompatActivity implements GCellBeaconM
             @Override
             public void run() {
                 Log.i(getString(R.string.app_name), "Beacons: " + beaconsOn);
-                 beaconsOn++;
+                beaconsOn++;
             }
         };
         timer.schedule(task, 0, 1000);
@@ -88,15 +86,27 @@ public class BeaconsListScreen extends AppCompatActivity implements GCellBeaconM
     @Override
     public void onGCellUpdateBeaconList(List<GCelliBeacon> discoveredBeacon) {
         if(beaconsOn % beaconIntervalTimer == 0) {
+            listAdapter.dataSource.clear();
             for (GCelliBeacon beacon : discoveredBeacon){
-                if (!listAdapter.dataSource.contains(beacon)) {
-                    beacons.add(beacon);
-                } else  {
-                    beacons.remove(beacon);
-                }
+                beacons.add(beacon);
             }
             listAdapter.notifyDataSetChanged();
             createNotification(getApplicationContext(), true, dID, beacons.size() + " Beacons Have Been Found!");
+        }
+    }
+
+    private void openChrome(String url) {
+        try {
+            Intent i = new Intent("android.intent.action.MAIN");
+            i.setComponent(ComponentName.unflattenFromString("com.android.chrome/com.android.chrome.Main"));
+            i.addCategory("android.intent.category.LAUNCHER");
+            i.setData(Uri.parse(url));
+            startActivity(i);
+        }
+        catch(ActivityNotFoundException e) {
+            // Chrome is not installed
+            Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+            startActivity(i);
         }
     }
 

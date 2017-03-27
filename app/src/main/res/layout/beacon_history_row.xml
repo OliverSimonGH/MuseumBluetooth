@@ -2,39 +2,54 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/beaconRow"
-        android:textSize="15sp"
-        android:textStyle="bold"
-        android:padding="10dp"
-        android:textColor="@color/colorWhite"
-        android:gravity="center"/>
+    android:orientation="vertical"
+    android:padding="10dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="vertical"
+        android:background="@color/colorBlack"
+        android:padding="2dp">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:id="@+id/beaconUUID"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:id="@+id/beaconMajorNo"
+            android:textSize="13sp"
+            android:textStyle="bold"
             android:padding="10dp"
-            android:textColor="@color/colorWhite"
+            android:textColor="@color/colorBlack"
+            android:background="@color/colorWhite"
             android:gravity="center"/>
 
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:id="@+id/beaconMinorNo"
-            android:padding="10dp"
-            android:textColor="@color/colorWhite"
-            android:gravity="center"/>
+            android:orientation="horizontal"
+            android:background="@color/colorWhite">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/beaconMajorNo"
+                android:padding="10dp"
+                android:textColor="@color/colorBlack"
+                android:gravity="center"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/beaconMinorNo"
+                android:padding="10dp"
+                android:textColor="@color/colorBlack"
+                android:gravity="center"
+                android:textStyle="bold"/>
+        </LinearLayout>
     </LinearLayout>
 </LinearLayout>
+
+
