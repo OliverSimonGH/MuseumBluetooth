@@ -32,6 +32,7 @@ public class DBSQLiteHelperTest extends AndroidTestCase{
     public void finsh(){
         db.close();
     }
+
     @Test
     public void testConditions() {
         assertNotNull(db);
@@ -61,8 +62,8 @@ public class DBSQLiteHelperTest extends AndroidTestCase{
 
     @Test
     public void testInsertData(){
-//        DBSQLiteHelper dbHelper = new DBSQLiteHelper(mContext);
-//        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        DBSQLiteHelper dbHelper = new DBSQLiteHelper(mContext);
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
 
         assertNotNull(db);
 
