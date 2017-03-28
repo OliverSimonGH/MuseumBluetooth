@@ -17,9 +17,15 @@ public class MainPageActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main_page);
 
         bottomNavigationView = (BottomNavigationView) findViewById(R.id.navBot);
+
+        final android.app.FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+
+        Fragment onLoad = HomeFragment.newInstance();
+        fragmentTransaction.add(R.id.fragment_container, onLoad);
+        fragmentTransaction.commit();
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
 

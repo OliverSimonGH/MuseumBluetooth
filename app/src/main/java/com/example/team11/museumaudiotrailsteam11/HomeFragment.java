@@ -7,13 +7,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 /**
  * Created by c1630186 on 25/03/2017.
  */
 public class HomeFragment extends Fragment {
-    Button homeCheckButton;
+    ImageView startPic;
 
     public static HomeFragment newInstance(){
         HomeFragment fragment = new HomeFragment();
@@ -25,13 +26,9 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view;
         view = inflater.inflate(R.layout.home_fragment_layout, container, false);
-        homeCheckButton = (Button)view.findViewById(R.id.btn_home_check);
-        homeCheckButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getActivity(), "This Button works!", Toast.LENGTH_LONG).show();
-            }
-        });
+
+        startPic = (ImageView)view.findViewById(R.id.imageHome);
+        startPic.setImageResource(R.drawable.lates_544x216);
 
         return view;
     }
