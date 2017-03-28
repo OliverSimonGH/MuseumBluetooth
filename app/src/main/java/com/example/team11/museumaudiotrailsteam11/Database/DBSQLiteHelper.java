@@ -92,7 +92,7 @@ public class DBSQLiteHelper extends SQLiteOpenHelper{   // Extending the Android
         contentValues.put(BEACON_UUID, beaconUUID);
         contentValues.put(BEACON_MAJORNO, beaconMajorNo);
         contentValues.put(BEACON_MINORNO, beaconMinorNo);
-        contentValues.put(BEACON_NAME, beaconURL);
+        contentValues.put(BEACON_NAME, beaconName);
         contentValues.put(BEACON_URL, beaconURL);
         long result = db.insert(HISTORY_NAME, null, contentValues);
         if (result == -1) return false;

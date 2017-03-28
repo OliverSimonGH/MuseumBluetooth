@@ -104,7 +104,7 @@ public class BeaconsListScreen extends AppCompatActivity implements GCellBeaconM
 //          https://www.youtube.com/watch?v=nY2bYJyGty8
         Cursor data = database.getExhibit(beacon.getProxUuid().getStringFormattedUuid(), beacon.getMajorNo(), beacon.getMinorNo());
         if (data.getCount() == 0){
-            Toast.makeText(getApplicationContext(), "No beacons found in db", Toast.LENGTH_SHORT).show();
+            Log.i(getString(R.string.app_name), "Could not find beacon");
         } else {
             while (data.moveToNext()){
                 beacons.add(new BluetoothBeacon(data.getString(1), data.getString(2), data.getString(3), data.getString(4), data.getString(5)));

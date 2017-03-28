@@ -9,6 +9,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -69,9 +70,9 @@ public class BeaconHistory extends AppCompatActivity{
                                 if (itemID > -1){
                                     database.removeHistoryValue(itemID);
                                     listAdapter.remove(beaconUUID, beaconMajorNo, beaconMinorNo);
-                                    Toast.makeText(getApplicationContext(), "You have deleted " + beaconUUID, Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getApplicationContext(), "You have deleted " + listAdapter.getBeaconName(position), Toast.LENGTH_SHORT).show();
                                 } else {
-                                    Toast.makeText(getApplicationContext(), "No ID associated with that beacon", Toast.LENGTH_SHORT).show();
+                                    Log.i(getString(R.string.app_name), "Cannot find ID associated with beacon");
                                 }
                             }
                         })
