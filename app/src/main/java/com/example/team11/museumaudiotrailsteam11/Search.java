@@ -33,12 +33,12 @@ public class Search extends AppCompatActivity {
         tv = (TextView) findViewById(R.id.tv);
 
         museums = new ArrayList<>();
-        museums.add("Cardiff");
-        museums.add("Cardiff Bay");
-        museums.add("Newport");
-        museums.add("Swansea");
-        museums.add("Neath");
-        museums.add("Skewen");
+        museums.add(getString(R.string.Cardiff));
+        museums.add(getString(R.string.CardiffBay));
+        museums.add(getString(R.string.Newport));
+        museums.add(getString(R.string.Swansea));
+        museums.add(getString(R.string.Neath));
+        museums.add(getString(R.string.Skewen));
 
         final ArrayAdapter<String> adap = new ArrayAdapter<String>(getApplicationContext(), R.layout.custom_textview, R.id.tv);
         adap.addAll(museums);

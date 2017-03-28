@@ -23,7 +23,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Opening Times"
+        android:text="@string/OpeningTimes"
         android:textSize="25sp"
         android:id="@+id/textView"
         android:layout_alignBottom="@+id/button5"
@@ -32,7 +32,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Mon-Fri:9am-6pm"
+        android:text="@string/MonFri"
         android:id="@+id/textView2"
         android:textSize="20sp"
         android:layout_below="@+id/button5"
@@ -43,7 +43,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="20sp"
-        android:text="Sat: 10am-7pm"
+        android:text="@string/Sat"
         android:id="@+id/textView3"
         android:layout_below="@+id/textView2"
         android:layout_centerHorizontal="true" />
@@ -52,7 +52,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="20sp"
-        android:text="Sun: Closed"
+        android:text="@string/Sun"
         android:id="@+id/textView4"
         android:layout_below="@+id/textView3"
         android:layout_centerHorizontal="true" />

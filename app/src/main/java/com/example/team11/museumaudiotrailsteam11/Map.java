@@ -27,7 +27,7 @@ public class Map extends AppCompatActivity {
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "This is Exhibit A", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), R.string.ExhibitA, Toast.LENGTH_SHORT).show();
             }
 
         });
@@ -35,7 +35,7 @@ public class Map extends AppCompatActivity {
         btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "This is Exhibit B", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), R.string.ExhibitB, Toast.LENGTH_SHORT).show();
             }
 
         });
@@ -43,7 +43,7 @@ public class Map extends AppCompatActivity {
         btn3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "This is Exhibit C", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), R.string.ExhibitC, Toast.LENGTH_SHORT).show();
             }
 
         });
@@ -51,7 +51,7 @@ public class Map extends AppCompatActivity {
         btn4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "This is Exhibit D", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), R.string.ExhibitD, Toast.LENGTH_SHORT).show();
             }
 
         });
