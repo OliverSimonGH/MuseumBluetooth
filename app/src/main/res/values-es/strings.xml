@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Museum Audio Trails Team 11</string>
+    <string name="AreYouSure"> ¿Está seguro de que desea eliminar este elemento?</string>
+    <string name="Cardiff">Cardiff</string>
+    <string name="CardiffBay">Cardiff Bay</string>
+    <string name="ErrorInsertingData">Error al insertar datos</string>
+    <string name="ExhibitA">Esta es la Prueba A</string>
+    <string name="ExhibitB">Esta es la Prueba B</string>
+    <string name="ExhibitC">Esta es la Prueba C</string>
+    <string name="ExhibitD">Esta es la Prueba D</string>
+    <string name="ItemDeletion">Eliminación de elementos</string>
+    <string name="MonFri">De lunes a viernes: 09 a.m.-6 p.m.</string>
+    <string name="Neath">Neath</string>
+    <string name="Newport">Newport</string>
+    <string name="No">No</string>
+    <string name="NoBeaconsFound">No se han encontrado balizas</string>
+    <string name="NoID"> No hay identificación asociada a ese faro</string>
+    <string name="OpeningTimes"> Los horarios de apertura</string>
+    <string name="Sat">Sábado: 10 am-7pm</string>
+    <string name="Skewen">Skewen</string>
+    <string name="SuccessfullyAddedData">Datos añadidos con éxito</string>
+    <string name="Sun">Sol: Cerrado</string>
+    <string name="Swansea">Swansea</string>
+    <string name="Yes"> Sí</string>
+    <string name="YouHaveDeleted"> Has eliminado</string>
+    <string name="exhibits_history"> Historia de las exposiciones</string>
+    <string name="notification">Notificación</string>
+    <string name="show_beacons"> Mostrar balizas</string>
+</resources>
