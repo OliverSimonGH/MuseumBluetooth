@@ -60,6 +60,7 @@ public class BeaconHistory extends AppCompatActivity{
                                 String beaconUUID = listAdapter.getBeaconUUID(position);
                                 String beaconMajorNo = listAdapter.getBeaconMajorNo(position);
                                 String beaconMinorNo = listAdapter.getBeaconMinorNo(position);
+                                String beaconName = listAdapter.getBeaconName(position);
 
 //                                https://www.youtube.com/watch?v=nY2bYJyGty8
                                 Cursor data = database.getHistoryItemID(beaconUUID, beaconMajorNo, beaconMinorNo);
@@ -70,7 +71,7 @@ public class BeaconHistory extends AppCompatActivity{
                                 if (itemID > -1){
                                     database.removeHistoryValue(itemID);
                                     listAdapter.remove(beaconUUID, beaconMajorNo, beaconMinorNo);
-                                    Toast.makeText(getApplicationContext(), "You have deleted " + listAdapter.getBeaconName(position), Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getApplicationContext(), "You have deleted " + beaconName , Toast.LENGTH_SHORT).show();
                                 } else {
                                     Log.i(getString(R.string.app_name), "Cannot find ID associated with beacon");
                                 }

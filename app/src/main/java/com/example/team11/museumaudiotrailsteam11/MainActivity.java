@@ -23,7 +23,6 @@ public class MainActivity extends AppCompatActivity {
 
     public void goToBeaconsHistoryPage(View view) {
         Intent i = new Intent(MainActivity.this, BeaconHistory.class);
-        finish();
         startActivity(i);
     }
 }

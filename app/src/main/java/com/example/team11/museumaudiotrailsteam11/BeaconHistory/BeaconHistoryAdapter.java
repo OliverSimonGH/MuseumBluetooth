@@ -49,10 +49,6 @@ public class BeaconHistoryAdapter extends BaseAdapter {
     }
 
     private class ViewHolder {
-        TextView beaconUUID;
-        TextView beaconMajorNo;
-        TextView beaconMinorNo;
-        TextView beaconProximity;
         TextView beaconName;
         TextView beaconURL;
     }
@@ -64,9 +60,6 @@ public class BeaconHistoryAdapter extends BaseAdapter {
         if(view == null) {
             vh = new ViewHolder();
             view = inflater.inflate(R.layout.beacon_history_row, null);
-//            vh.beaconUUID = (TextView) view.findViewById(R.id.beaconUUID);
-            vh.beaconMajorNo = (TextView) view.findViewById(R.id.beaconMajorNo);
-            vh.beaconMinorNo = (TextView) view.findViewById(R.id.beaconMinorNo);
             vh.beaconName = (TextView) view.findViewById(R.id.beaconName);
             vh.beaconURL = (TextView) view.findViewById(R.id.beaconURL);
             view.setTag(vh);
@@ -75,8 +68,6 @@ public class BeaconHistoryAdapter extends BaseAdapter {
         }
         vh.beaconName.setText("Exhibit: " + dataSource.get(position).getName());
         vh.beaconURL.setText("URL: " + dataSource.get(position).getUrl());
-        vh.beaconMajorNo.setText("Major No: " + dataSource.get(position).getMajorNo());
-        vh.beaconMinorNo.setText("Minor No: " + dataSource.get(position).getMinorNo());
         return view;
     }
 

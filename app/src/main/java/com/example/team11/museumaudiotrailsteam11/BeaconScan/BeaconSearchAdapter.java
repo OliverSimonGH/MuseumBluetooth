@@ -70,22 +70,14 @@ public class BeaconSearchAdapter extends BaseAdapter {
         if(view == null) {
             vh = new ViewHolder();
             view = inflater.inflate(R.layout.beacon_search_adapter_row, null);
-//            vh.beaconUUID = (TextView) view.findViewById(R.id.beaconUUID);
-            vh.beaconMajorNo = (TextView) view.findViewById(R.id.beaconMajorNo);
-            vh.beaconMinorNo = (TextView) view.findViewById(R.id.beaconMinorNo);
             vh.beaconName = (TextView) view.findViewById(R.id.beaconName);
             vh.beaconURL = (TextView) view.findViewById(R.id.beaconURL);
-//            vh.beaconProximity = (TextView) view.findViewById(R.id.beaconProximity);
             view.setTag(vh);
         }else{
             vh = (ViewHolder) view.getTag();
         }
-//        vh.beaconUUID.setText(dataSource.get(position).getBeaconUUID());
-        vh.beaconMajorNo.setText("Major: " + dataSource.get(position).getMajorNo());
-        vh.beaconMinorNo.setText("Minor: " + dataSource.get(position).getMinorNo());
         vh.beaconName.setText("Exhibit: " + dataSource.get(position).getName());
         vh.beaconURL.setText("URL: " + dataSource.get(position).getUrl());
-
         return view;
     }
 
@@ -108,8 +100,4 @@ public class BeaconSearchAdapter extends BaseAdapter {
     public String getBeaconURL(int i) {
         return dataSource.get(i).getUrl();
     }
-
-
-
-
 }

@@ -128,6 +128,18 @@ public class BeaconsListScreen extends AppCompatActivity implements GCellBeaconM
     }
 
     @Override
+    protected void onPause() {
+        super.onPause();
+        timer.cancel();
+        timer.purge();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
+
+    @Override
     public void didEnterBeaconRegion(GCellBeaconRegion gCellBeaconRegion) {
 
     }
