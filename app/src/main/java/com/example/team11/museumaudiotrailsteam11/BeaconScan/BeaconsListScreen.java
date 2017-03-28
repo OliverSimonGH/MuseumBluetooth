@@ -15,17 +15,17 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Timer;
-import java.util.TimerTask;
-
 import com.example.team11.museumaudiotrailsteam11.MainActivity;
 import com.example.team11.museumaudiotrailsteam11.R;
 import com.gcell.ibeacon.gcellbeaconscanlibrary.GCellBeaconManagerScanEvents;
 import com.gcell.ibeacon.gcellbeaconscanlibrary.GCellBeaconRegion;
 import com.gcell.ibeacon.gcellbeaconscanlibrary.GCellBeaconScanManager;
 import com.gcell.ibeacon.gcellbeaconscanlibrary.GCelliBeacon;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 
 public class BeaconsListScreen extends AppCompatActivity implements GCellBeaconManagerScanEvents{
@@ -58,11 +58,11 @@ public class BeaconsListScreen extends AppCompatActivity implements GCellBeaconM
 //                need to add items clicked to the database
 //                http://stackoverflow.com/questions/12013416/is-there-any-way-in-android-to-force-open-a-link-to-open-in-chrome
 //                get item clicked URL
-                String url = "http://www.google.com";
+                String url = getString(R.string.StringURL);
                 try {
-                    Intent i = new Intent("android.intent.action.MAIN");
-                    i.setComponent(ComponentName.unflattenFromString("com.android.chrome/com.android.chrome.Main"));
-                    i.addCategory("android.intent.category.LAUNCHER");
+                    Intent i = new Intent(getString(R.string.AndroidIntentActionMain));
+                    i.setComponent(ComponentName.unflattenFromString(getString(R.string.comAndroidChromeMain)));
+                    i.addCategory(getString(R.string.AndroidIntentCategoryLauncher));
                     i.setData(Uri.parse(url));
                     startActivity(i);
                 }

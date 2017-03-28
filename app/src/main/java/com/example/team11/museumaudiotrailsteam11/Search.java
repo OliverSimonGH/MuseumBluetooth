@@ -1,7 +1,10 @@
 package com.example.team11.museumaudiotrailsteam11;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.SearchView;
@@ -23,17 +26,19 @@ public class Search extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
 
+
+
         list = (ListView) findViewById(R.id.lv);
         search = (SearchView) findViewById(R.id.sv);
         tv = (TextView) findViewById(R.id.tv);
 
         museums = new ArrayList<>();
-        museums.add("Cardiff");
-        museums.add("Cardiff Bay");
-        museums.add("Newport");
-        museums.add("Swansea");
-        museums.add("Neath");
-        museums.add("Skewen");
+        museums.add(getString(R.string.Cardiff));
+        museums.add(getString(R.string.CardiffBay));
+        museums.add(getString(R.string.Newport));
+        museums.add(getString(R.string.Swansea));
+        museums.add(getString(R.string.Neath));
+        museums.add(getString(R.string.Skewen));
 
         final ArrayAdapter<String> adap = new ArrayAdapter<String>(getApplicationContext(), R.layout.custom_textview, R.id.tv);
         adap.addAll(museums);
@@ -54,5 +59,22 @@ public class Search extends AppCompatActivity {
             }
         });
 
-    }
+        list.setClickable(true);
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
+
+
+
+                Intent i = new Intent(getApplicationContext(), museumInfo.class);
+                startActivity(i);
+
+        }
+
+
+
+
+
+    });
+}
 }
