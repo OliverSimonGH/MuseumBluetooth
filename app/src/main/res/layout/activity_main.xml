@@ -24,9 +24,19 @@ tools:context="com.example.team11.museumaudiotrailsteam11.MainActivity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/exhibits_history"
-        android:id="@+id/sow_beacons_history_button"
+        android:id="@+id/show_beacons_history_button"
         android:background="@color/colorDark"
         android:textColor="@color/colorWhite"
         android:onClick="goToBeaconsHistoryPage"
+        android:layout_marginBottom="15dp"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/settings"
+        android:id="@+id/goToSettings"
+        android:background="@color/colorDark"
+        android:textColor="@color/colorWhite"
+        android:onClick="goToSettingsPage"
         android:layout_marginBottom="15dp"/>
 </LinearLayout>

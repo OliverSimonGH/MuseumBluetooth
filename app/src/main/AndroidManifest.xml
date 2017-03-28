@@ -20,17 +20,13 @@
             </intent-filter>
 
         </activity>
-<<<<<<< HEAD
-        <activity android:name=".HomePage"></activity>
-    </application>
-=======
+
         <activity android:name=".Map" />
         <activity android:name=".Search" />
         <activity android:name=".BeaconScan.BeaconsListScreen"
             android:label="Search Beacons" />
         <activity android:name=".BeaconHistory.BeaconHistory"
             android:label="Beacon History" />
->>>>>>> 72b5709be8ce02022bfc974e7a7e7f1be05b2a7f
-
+        <activity android:name=".Settings.Settings" />
     </application>
 </manifest>

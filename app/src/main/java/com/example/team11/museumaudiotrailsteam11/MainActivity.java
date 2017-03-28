@@ -7,6 +7,7 @@ import android.view.View;
 
 import com.example.team11.museumaudiotrailsteam11.BeaconHistory.BeaconHistory;
 import com.example.team11.museumaudiotrailsteam11.BeaconScan.BeaconsListScreen;
+import com.example.team11.museumaudiotrailsteam11.Settings.Settings;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,6 +25,11 @@ public class MainActivity extends AppCompatActivity {
     public void goToBeaconsHistoryPage(View view) {
         Intent i = new Intent(MainActivity.this, BeaconHistory.class);
         finish();
+        startActivity(i);
+    }
+
+    public void goToSettingsPage(View view) {
+        Intent i = new Intent(MainActivity.this, Settings.class);
         startActivity(i);
     }
 }

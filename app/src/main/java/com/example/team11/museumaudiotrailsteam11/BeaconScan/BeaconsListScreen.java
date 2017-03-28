@@ -22,6 +22,7 @@ import java.util.TimerTask;
 
 import com.example.team11.museumaudiotrailsteam11.MainActivity;
 import com.example.team11.museumaudiotrailsteam11.R;
+import com.example.team11.museumaudiotrailsteam11.Settings.Settings;
 import com.gcell.ibeacon.gcellbeaconscanlibrary.GCellBeaconManagerScanEvents;
 import com.gcell.ibeacon.gcellbeaconscanlibrary.GCellBeaconRegion;
 import com.gcell.ibeacon.gcellbeaconscanlibrary.GCellBeaconScanManager;
@@ -37,6 +38,7 @@ public class BeaconsListScreen extends AppCompatActivity implements GCellBeaconM
     private int dID, beaconsOn;
     private Timer timer = new Timer();
     private final int beaconIntervalTimer = 10;
+    private Settings settings;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,7 +98,10 @@ public class BeaconsListScreen extends AppCompatActivity implements GCellBeaconM
                 }
             }
             listAdapter.notifyDataSetChanged();
-            createNotification(getApplicationContext(), true, dID, beacons.size() + " Beacons Have Been Found!");
+            if (settings.isNotificationsOn()){
+                createNotification(getApplicationContext(), true, dID, beacons.size() + " Beacons Have Been Found!");
+            }
+
         }
     }
 
