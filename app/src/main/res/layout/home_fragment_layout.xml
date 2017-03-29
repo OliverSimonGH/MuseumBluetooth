@@ -17,4 +17,21 @@
         android:layout_height="100dp"
         android:id="@+id/imageHome"
         android:layout_gravity="center_horizontal" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Scan for Beacons"
+        android:id="@+id/scanBtn"
+        android:layout_gravity="center_horizontal" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="View History"
+        android:id="@+id/btnHistory"
+        android:icon="@drawable/ic_history"
+        android:layout_gravity="center_horizontal" />
 </LinearLayout>
