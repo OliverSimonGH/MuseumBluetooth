@@ -42,6 +42,12 @@ public class MainPageActivity extends AppCompatActivity {
                     case R.id.history_item:
                         chosenFragment = HistoryFragment.newInstance();
                         break;
+                    case R.id.settings_item:
+                        chosenFragment = SettingsFragment.newInstance();
+                        break;
+                    case R.id.map_item:
+                        chosenFragment = MapFragment.newInstance();
+                        break;
 
                 }
                 android.app.FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();

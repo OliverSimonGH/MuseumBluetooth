@@ -10,7 +10,7 @@
 <item
     android:id="@+id/search_item"
     android:icon="@drawable/ic_search"
-    android:title="Search"
+    android:title="Museum Search"
     />
 
 <item
@@ -23,6 +23,12 @@
         android:id="@+id/settings_item"
         android:icon="@drawable/ic_settings"
         android:title="Settings"
+        />
+
+    <item
+        android:id="@+id/map_item"
+        android:icon="@drawable/ic_map"
+        android:title="Museum Map"
         />
 
 </menu>
