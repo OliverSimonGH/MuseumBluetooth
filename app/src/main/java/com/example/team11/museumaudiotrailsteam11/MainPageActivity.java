@@ -42,6 +42,7 @@ public class MainPageActivity extends AppCompatActivity {
                     case R.id.history_item:
                         chosenFragment = HistoryFragment.newInstance();
                         break;
+
                 }
                 android.app.FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.fragment_container, chosenFragment);
