@@ -1,7 +1,7 @@
 package com.example.team11.museumaudiotrailsteam11;
 
 import android.app.Fragment;
-import android.content.Intent;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -9,10 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.Toast;
-
-import com.example.team11.museumaudiotrailsteam11.BeaconHistory.BeaconHistory;
-import com.example.team11.museumaudiotrailsteam11.BeaconScan.BeaconsListScreen;
 
 /**
  * Created by c1630186 on 25/03/2017.
@@ -21,6 +17,7 @@ public class HomeFragment extends Fragment {
     ImageView startPic;
     Button scanningBtn;
     Button accessHistorybtn;
+    onFragmentClickListener fm;
 
     public static HomeFragment newInstance(){
         HomeFragment fragment = new HomeFragment();
@@ -41,22 +38,32 @@ public class HomeFragment extends Fragment {
         scanningBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setClass(getActivity(), BeaconsListScreen.class);
-                getActivity().startActivity(intent);
             }
         });
 
         accessHistorybtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setClass(getActivity(), BeaconHistory.class);
-                getActivity().startActivity(intent);
 
             }
         });
 
         return view;
     }
+
+    @Override
+    public void onAttach(Context context){
+        super.onAttach(context);
+        if (context instanceof onFragmentClickListener ){
+            fm = (onFragmentClickListener) context;
+        }
+    }
+
+    public interface onFragmentClickListener {
+        void switchToScan();
+        void switchTOHistory();
+
+    }
+
+
 }

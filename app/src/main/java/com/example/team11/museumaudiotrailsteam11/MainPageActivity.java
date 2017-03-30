@@ -1,16 +1,20 @@
 package com.example.team11.museumaudiotrailsteam11;
 
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
+import com.example.team11.museumaudiotrailsteam11.BeaconHistory.BeaconHistory;
+import com.example.team11.museumaudiotrailsteam11.BeaconScan.BeaconsListScreen;
+
 /**
  * Created by c1630186 on 25/03/2017.
  */
-public class MainPageActivity extends AppCompatActivity {
+public class MainPageActivity extends AppCompatActivity implements HomeFragment.onFragmentClickListener {
 
     BottomNavigationView bottomNavigationView;
 
@@ -56,6 +60,18 @@ public class MainPageActivity extends AppCompatActivity {
                 return true;
             }
         });
+    }
+
+    @Override
+    public void switchToScan() {
+        Intent i = new Intent(getApplicationContext(), BeaconsListScreen.class);
+        startActivity(i);
+    }
+
+    @Override
+    public void switchTOHistory() {
+        Intent i = new Intent(getApplicationContext(), BeaconHistory.class);
+        startActivity(i);
     }
 }
 
