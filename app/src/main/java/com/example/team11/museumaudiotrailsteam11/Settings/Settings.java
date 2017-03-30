@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.CompoundButton;
+import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.CompoundButton.OnCheckedChangeListener;
@@ -14,15 +15,29 @@ import com.example.team11.museumaudiotrailsteam11.R;
  */
 public class Settings extends AppCompatActivity {
 
-
     private boolean isNotificationsOn = true;
     private Switch mySwitch;
+    private Spinner spin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.settings_layout);
 
+//        adapter.setDropDowlnViewResource(android.R.layout.settings_layout);
+        Spinner spin = (Spinner) findViewById(R.id.language_spinner);
+//        spin.setAdapter(adapter);
+
+        String selected = spin.getSelectedItem().toString();
+        if (selected.equals("ENGLISH")){
+
+        }
+        else if (selected.equals("WELSH")){
+            method();
+        }
+        else if (selected.equals("SPANISH")){
+            method();
+        }
         mySwitch = (Switch) findViewById(R.id.notificationSwitch);
         mySwitch.setChecked(true);
         mySwitch.setOnCheckedChangeListener(new OnCheckedChangeListener() {
@@ -32,7 +47,10 @@ public class Settings extends AppCompatActivity {
                 else isNotificationsOn = false;
             }
         });
+        @Override
+        public void
     }
+
 
     public boolean isNotificationsOn() {
         return isNotificationsOn;
