@@ -43,9 +43,6 @@ public class MainPageActivity extends AppCompatActivity implements HomeFragment.
                     case R.id.search_item:
                         chosenFragment = SearchFragment.newInstance();
                         break;
-                    case R.id.history_item:
-                        chosenFragment = HistoryFragment.newInstance();
-                        break;
                     case R.id.settings_item:
                         chosenFragment = SettingsFragment.newInstance();
                         break;

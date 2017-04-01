@@ -38,13 +38,14 @@ public class HomeFragment extends Fragment {
         scanningBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                fm.switchToScan();
             }
         });
 
         accessHistorybtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                fm.switchTOHistory();
             }
         });
 

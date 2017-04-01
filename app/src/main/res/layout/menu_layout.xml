@@ -13,11 +13,6 @@
     android:title="Museum Search"
     />
 
-<item
-    android:id="@+id/history_item"
-    android:icon="@drawable/ic_history"
-    android:title="History"
-    />
 
     <item
         android:id="@+id/settings_item"
