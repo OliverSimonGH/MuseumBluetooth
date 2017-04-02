@@ -1,4 +1,4 @@
-package com.example.team11.museumaudiotrailsteam11;
+package com.example.team11.museumaudiotrailsteam11.Fragments;
 
 import android.app.Fragment;
 import android.os.Bundle;
@@ -8,6 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
+
+import com.example.team11.museumaudiotrailsteam11.R;
 
 /**
  * Created by c1630186 on 29/03/2017.

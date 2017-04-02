@@ -1,4 +1,4 @@
-package com.example.team11.museumaudiotrailsteam11;
+package com.example.team11.museumaudiotrailsteam11.Fragments;
 
 import android.app.Fragment;
 import android.content.Intent;
@@ -10,6 +10,7 @@ import android.view.MenuItem;
 
 import com.example.team11.museumaudiotrailsteam11.BeaconHistory.BeaconHistory;
 import com.example.team11.museumaudiotrailsteam11.BeaconScan.BeaconsListScreen;
+import com.example.team11.museumaudiotrailsteam11.R;
 
 /**
  * Created by c1630186 on 25/03/2017.

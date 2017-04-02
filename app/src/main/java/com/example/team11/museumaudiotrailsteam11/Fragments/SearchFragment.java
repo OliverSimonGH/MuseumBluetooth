@@ -1,4 +1,4 @@
-package com.example.team11.museumaudiotrailsteam11;
+package com.example.team11.museumaudiotrailsteam11.Fragments;
 
 import android.app.Fragment;
 import android.os.Bundle;
@@ -10,6 +10,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.TextView;
+
+import com.example.team11.museumaudiotrailsteam11.R;
 
 import java.util.ArrayList;
 import java.util.List;
