@@ -26,16 +26,17 @@ public class Settings extends AppCompatActivity {
 
 //        adapter.setDropDowlnViewResource(android.R.layout.settings_layout);
         Spinner spin = (Spinner) findViewById(R.id.language_spinner);
+        spin
 //        spin.setAdapter(adapter);
 
         String selected = spin.getSelectedItem().toString();
-        if (selected.equals("ENGLISH")){
+        if (selected.equals("English")){
 
         }
-        else if (selected.equals("WELSH")){
+        else if (selected.equals("Welsh")){
             method();
         }
-        else if (selected.equals("SPANISH")){
+        else if (selected.equals("Spanish")){
             method();
         }
         mySwitch = (Switch) findViewById(R.id.notificationSwitch);
