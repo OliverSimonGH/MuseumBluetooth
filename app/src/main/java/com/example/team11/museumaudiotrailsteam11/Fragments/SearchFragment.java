@@ -26,7 +26,7 @@ public class SearchFragment extends Fragment {
     SearchView search;
     TextView tv;
 
-    public static SearchFragment newInstance(){
+    public static SearchFragment newInstance(){ // See HomeFragment for explanation
         SearchFragment fragment = new SearchFragment();
         return fragment;
     }

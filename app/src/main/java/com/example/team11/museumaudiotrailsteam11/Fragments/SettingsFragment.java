@@ -14,7 +14,7 @@ import com.example.team11.museumaudiotrailsteam11.R;
  */
 public class SettingsFragment extends Fragment {
 
-    public static SettingsFragment newInstance(){
+    public static SettingsFragment newInstance(){   // See HomeFragment for explanation
         SettingsFragment fragment = new SettingsFragment();
         return fragment;
     }

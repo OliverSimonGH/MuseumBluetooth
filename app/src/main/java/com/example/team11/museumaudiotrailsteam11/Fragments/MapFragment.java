@@ -22,7 +22,7 @@ public class MapFragment extends Fragment{
     Button btn4;
 
 
-    public static MapFragment newInstance(){
+    public static MapFragment newInstance(){    // See HomeFragment for explanation
             MapFragment fragment = new MapFragment();
             return fragment;
         }

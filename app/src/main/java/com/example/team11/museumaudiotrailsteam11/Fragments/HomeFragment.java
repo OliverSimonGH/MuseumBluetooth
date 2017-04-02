@@ -19,11 +19,11 @@ public class HomeFragment extends Fragment {
     ImageView startPic;
     Button scanningBtn;
     Button accessHistorybtn;
-    onFragmentClickListener fm;
+    onFragmentClickListener fm; // Instance of the interface.
 
-    public static HomeFragment newInstance(){
-        HomeFragment fragment = new HomeFragment();
-        return fragment;
+    public static HomeFragment newInstance(){   // Constructor for this fragment.
+        HomeFragment fragment = new HomeFragment(); // Declaring a new object fragment.
+        return fragment;    // Returning the object fragment.
     }
 
     @Nullable
@@ -37,17 +37,17 @@ public class HomeFragment extends Fragment {
         scanningBtn = (Button)view.findViewById(R.id.scanBtn);
         accessHistorybtn = (Button)view.findViewById(R.id.btnHistory);
 
-        scanningBtn.setOnClickListener(new View.OnClickListener() {
+        scanningBtn.setOnClickListener(new View.OnClickListener() { // Setting onClickListener for the scanning button.
             @Override
             public void onClick(View v) {
-                fm.switchToScan();
+                fm.switchToScan();  // Calling the method to switch to the Scan page.
             }
         });
 
-        accessHistorybtn.setOnClickListener(new View.OnClickListener() {
+        accessHistorybtn.setOnClickListener(new View.OnClickListener() { // Setting onClickListener for the History button.
             @Override
             public void onClick(View v) {
-                fm.switchTOHistory();
+                fm.switchTOHistory();   // Calling the method to switch to the History page.
             }
         });
 
@@ -55,7 +55,8 @@ public class HomeFragment extends Fragment {
     }
 
     @Override
-    public void onAttach(Context context){
+    public void onAttach(Context context){  // onAttach Method for all methods in the onFragmentClickListener interface
+        // git@gitlab.cs.cf.ac.uk:CM6122/10_fragments_lists_tabs_services.git
         super.onAttach(context);
         if (context instanceof onFragmentClickListener ){
             fm = (onFragmentClickListener) context;
