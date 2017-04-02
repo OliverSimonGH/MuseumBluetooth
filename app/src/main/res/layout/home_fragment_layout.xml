@@ -4,17 +4,34 @@
     android:layout_height="400dp"
     android:background="#ffffff">
 
-    <EditText
-        android:layout_width="match_parent"
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="Home Page"
-        android:textColor="#000000"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"/>
+        android:text="Home"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:id="@+id/homeTitle"
+        android:layout_gravity="center_horizontal" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:id="@+id/imageHome"
+        android:layout_gravity="center_horizontal" />
+
     <Button
         style="?android:attr/buttonStyleSmall"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Click Me!"
-        android:id="@+id/btn_home_check" />
+        android:text="Scan for Beacons"
+        android:id="@+id/scanBtn"
+        android:layout_gravity="center_horizontal" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="View History"
+        android:id="@+id/btnHistory"
+        android:icon="@drawable/ic_history"
+        android:layout_gravity="center_horizontal" />
 </LinearLayout>

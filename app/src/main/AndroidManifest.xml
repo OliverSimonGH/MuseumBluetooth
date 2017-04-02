@@ -29,10 +29,8 @@
         <activity
             android:name=".BeaconHistory.BeaconHistory"
             android:label="Beacon History" />
-<<<<<<< HEAD
-=======
+
         <activity android:name=".museumInfo"></activity>
->>>>>>> 6f42ecb4cd119d3f503bcc2cb2217d552ec711b8
     </application>
 
 </manifest>
