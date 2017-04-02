@@ -21,10 +21,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-<<<<<<< HEAD
         <activity android:name=".HomePage"></activity>
     </application>
-=======
+
         <activity android:name=".Map" />
         <activity android:name=".Search" />
         <activity
@@ -33,15 +32,8 @@
         <activity
             android:name=".BeaconHistory.BeaconHistory"
             android:label="Beacon History" />
-<<<<<<< HEAD
 
         <activity android:name=".museumInfo"></activity>
-=======
->>>>>>> 72b5709be8ce02022bfc974e7a7e7f1be05b2a7f
 
-         <activity android:name=".museumInfo"></activity>
 
->>>>>>> 6e4d0e01eb36cfaf545e03ff15716c9224fe9bcb
-    </application>
-
-    </manifest>
+</manifest>
