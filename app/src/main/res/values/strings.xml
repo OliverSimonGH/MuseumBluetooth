@@ -1,18 +1,12 @@
 <resources>
     <string name="app_name">Museum Audio Trails Team 11</string>
-<<<<<<< HEAD
+
     <string name="historyFeed">History Feed</string>
-=======
+
     <string name="notification">Notification</string>
     <string name="show_beacons">Show Beacons</string>
     <string name="exhibits_history">Exhibits History</string>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 72b5709be8ce02022bfc974e7a7e7f1be05b2a7f
-=======
 
->>>>>>> 6e4d0e01eb36cfaf545e03ff15716c9224fe9bcb
     <string name="title_activity_home">HomeActivity</string>
     <string name="action_settings">Settings</string>
     <string name="section_format">Hello World from section: %1$d</string>
@@ -45,15 +39,9 @@
     <string name="NoBeaconsFound">No beacons found</string>
     <string name="SuccessfullyAddedData">Successfully Added Data</string>
     <string name="ErrorInsertingData">Error Inserting Data</string>
-<<<<<<< HEAD
     // Menu Strings
     <string name="homeItemMenu">Home</string>
     <string name="museumSearchItem">Search</string>
     <string name="settingsItem">Settings</string>
     <string name="mapItem">Map</string>
-
-=======
-
->>>>>>> 19cd7c27495bfd751295e8ebaa1bf8617061e020
->>>>>>> 6e4d0e01eb36cfaf545e03ff15716c9224fe9bcb
 </resources>
