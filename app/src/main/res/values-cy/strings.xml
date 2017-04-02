@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name"> Amgueddfa Audio Trails Tîm 11</string>
+    <string name="Cardiff"> Caerdydd</string>
+    <string name="AreYouSure"> Ydych chi\'n siŵr eich bod am ddileu\'r eitem hon?</string>
+    <string name="CardiffBay"> Bae Caerdydd</string>
+    <string name="ErrorInsertingData">Gwall Mewnosod Data</string>
+    <string name="ExhibitA"> Mae hyn yn Arddangosyn A</string>
+    <string name="ExhibitB"> Mae hyn yn Arddangosyn B</string>
+    <string name="ExhibitC"> Mae hyn yn Arddangosyn C</string>
+    <string name="ExhibitD"> Mae hyn yn Arddangosyn D</string>
+    <string name="ItemDeletion">Dileu Eitem</string>
+    <string name="MonFri"> Llun-Gwener: 9:00-6:00</string>
+    <string name="Neath">Castell-nedd</string>
+    <string name="Newport"> Casnewydd</string>
+    <string name="No">Nac oes</string>
+    <string name="NoBeaconsFound">Ni chafwyd ffaglau</string>
+    <string name="NoID">Dim ID gysylltiedig â\'r disglair</string>
+    <string name="OpeningTimes"> Oriau Agor</string>
+    <string name="Sat"> Sad: 10:00-7:00</string>
+    <string name="Skewen">Skewen</string>
+    <string name="SuccessfullyAddedData">Data Ychwanegwyd yn llwyddiannus</string>
+    <string name="Sun">Sul: Ar gau</string>
+    <string name="Swansea"> Abertawe</string>
+    <string name="Yes">Ydw</string>
+    <string name="YouHaveDeleted"> "Rydych wedi dileu"</string>
+    <string name="exhibits_history"> arddangosion Hanes</string>
+    <string name="notification">Hysbysiad</string>
+    <string name="show_beacons"> Dangos Beacons</string>
+</resources>

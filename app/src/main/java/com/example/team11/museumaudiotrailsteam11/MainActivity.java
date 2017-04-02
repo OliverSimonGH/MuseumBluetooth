@@ -10,6 +10,8 @@ import com.example.team11.museumaudiotrailsteam11.BeaconScan.BeaconsListScreen;
 
 public class MainActivity extends AppCompatActivity {
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
