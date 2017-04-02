@@ -35,5 +35,10 @@
     <string name="NoBeaconsFound">No beacons found</string>
     <string name="SuccessfullyAddedData">Successfully Added Data</string>
     <string name="ErrorInsertingData">Error Inserting Data</string>
+    // Menu Strings
+    <string name="homeItemMenu">Home</string>
+    <string name="museumSearchItem">Search</string>
+    <string name="settingsItem">Settings</string>
+    <string name="mapItem">Map</string>
 
 </resources>
