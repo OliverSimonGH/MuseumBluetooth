@@ -62,9 +62,9 @@ public class HomeFragment extends Fragment {
         }
     }
 
-    public interface onFragmentClickListener {
-        void switchToScan();
-        void switchTOHistory();
+    public interface onFragmentClickListener {  // Creating a interface.
+        void switchToScan();    // Creating a method that switches to the scanning page
+        void switchTOHistory(); // Creating a method that switches to the History Page.
 
     }
 

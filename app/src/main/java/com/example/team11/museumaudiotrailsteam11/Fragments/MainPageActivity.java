@@ -15,8 +15,9 @@ import com.example.team11.museumaudiotrailsteam11.R;
 /**
  * Created by c1630186 on 25/03/2017.
  */
-public class MainPageActivity extends AppCompatActivity implements HomeFragment.onFragmentClickListener {
+public class MainPageActivity extends AppCompatActivity implements HomeFragment.onFragmentClickListener {   // Implement the FragmentSwitch interface.
 
+    // Declaring a BottomNavigationView object - This was added with the widget.
     BottomNavigationView bottomNavigationView;
 
     @Override
@@ -26,34 +27,42 @@ public class MainPageActivity extends AppCompatActivity implements HomeFragment.
 
         bottomNavigationView = (BottomNavigationView) findViewById(R.id.navBot);
 
+        // Declaring a FragmentTransaction which is two methods - Get the fragment manager and begin a transaction (Switch to a Fragment)
         final android.app.FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
 
+        // Creating an instance of the HomeFragment page.
         Fragment onLoad = HomeFragment.newInstance();
+        // Locating the relative Layout where the fragment is going to be loaded into.
         fragmentTransaction.add(R.id.fragment_container, onLoad);
+        // Commit the change.
         fragmentTransaction.commit();
 
+        // Setting an on click listner for every item in menu
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
 
+            // http://www.truiton.com/2017/01/android-bottom-navigation-bar-example/
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                Fragment chosenFragment = null;
-                switch (item.getItemId()) {
-                    case R.id.home_item:
-                        chosenFragment = HomeFragment.newInstance();
+                Fragment chosenFragment = null; // Making a Fragment setting it ro Null
+                switch (item.getItemId()) { // Get an item from the menu
+                    case R.id.home_item:    // If Home Item....
+                        chosenFragment = HomeFragment.newInstance();    // Set the fragment to Home.
                         break;
-                    case R.id.search_item:
-                        chosenFragment = SearchFragment.newInstance();
+                    case R.id.search_item:  // If search item....
+                        chosenFragment = SearchFragment.newInstance();  // Set the fragment to Search.
                         break;
-                    case R.id.settings_item:
-                        chosenFragment = SettingsFragment.newInstance();
+                    case R.id.settings_item: // If settings item
+                        chosenFragment = SettingsFragment.newInstance();    // Set the fragment to Settings.
                         break;
-                    case R.id.map_item:
-                        chosenFragment = MapFragment.newInstance();
+                    case R.id.map_item: // If map item
+                        chosenFragment = MapFragment.newInstance(); // Set the fragment to Map.
                         break;
 
                 }
                 android.app.FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                // Locating the relative Layout where the fragment is going to be loaded into.
                 fragmentTransaction.replace(R.id.fragment_container, chosenFragment);
+                // Commit the fragment to be loaded into the container..
                 fragmentTransaction.commit();
                 return true;
             }
@@ -61,15 +70,15 @@ public class MainPageActivity extends AppCompatActivity implements HomeFragment.
     }
 
     @Override
-    public void switchToScan() {
-        Intent i = new Intent(getApplicationContext(), BeaconsListScreen.class);
-        startActivity(i);
+    public void switchToScan() {    // Method from interface onFragmentSwitchListener
+        Intent i = new Intent(getApplicationContext(), BeaconsListScreen.class);    // Making a new intent to switch to the BeaconListScreen.
+        startActivity(i);   // Start the intent
     }
 
     @Override
-    public void switchTOHistory() {
-        Intent i = new Intent(getApplicationContext(), BeaconHistory.class);
-        startActivity(i);
+    public void switchTOHistory() { // Method from interface onFragmentSwitchListener
+        Intent i = new Intent(getApplicationContext(), BeaconHistory.class);    // Making a new intent to switch to the BeaconHistory.
+        startActivity(i);   // Start the Intent
     }
 }
 
