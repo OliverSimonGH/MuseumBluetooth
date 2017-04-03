@@ -7,7 +7,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Home"
+        android:text="@string/homeItemMenu"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:id="@+id/homeTitle"
         android:layout_gravity="center_horizontal" />
@@ -28,6 +28,7 @@
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:text="@string/historyBtn"
+            android:textColor="#FFFFFF"
             android:id="@+id/btnHistory"
             android:background="@drawable/button_home_design"
             android:layout_marginLeft="30dp"
@@ -39,6 +40,7 @@
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:text="@string/scanBtn"
+            android:textColor="#FFFFFF"
             android:id="@+id/scanBtn"
             android:background="@drawable/button_home_design"
             android:layout_marginRight="40dp"

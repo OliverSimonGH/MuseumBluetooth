@@ -34,6 +34,7 @@ public class HomeFragment extends Fragment {
 
         startPic = (ImageView)view.findViewById(R.id.imageHome);
         startPic.setImageResource(R.drawable.lates_544x216);
+        startPic.setScaleType(ImageView.ScaleType.FIT_XY);
         scanningBtn = (Button)view.findViewById(R.id.scanBtn);
         accessHistorybtn = (Button)view.findViewById(R.id.btnHistory);
 
