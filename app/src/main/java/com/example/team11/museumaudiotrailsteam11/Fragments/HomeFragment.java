@@ -19,6 +19,7 @@ public class HomeFragment extends Fragment {
     ImageView startPic;
     Button scanningBtn;
     Button accessHistorybtn;
+    Button settingBtn;
     onFragmentClickListener fm; // Instance of the interface.
 
     public static HomeFragment newInstance(){   // Constructor for this fragment.
@@ -36,6 +37,7 @@ public class HomeFragment extends Fragment {
         startPic.setImageResource(R.drawable.lates_544x216);
         scanningBtn = (Button)view.findViewById(R.id.scanBtn);
         accessHistorybtn = (Button)view.findViewById(R.id.btnHistory);
+        settingBtn = (Button)view.findViewById(R.id.btnSettings);
 
         scanningBtn.setOnClickListener(new View.OnClickListener() { // Setting onClickListener for the scanning button.
             @Override
@@ -51,6 +53,12 @@ public class HomeFragment extends Fragment {
             }
         });
 
+        settingBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                fm.switchToSettings();
+            }
+        });
         return view;
     }
 
@@ -66,7 +74,7 @@ public class HomeFragment extends Fragment {
     public interface onFragmentClickListener {  // Creating a interface.
         void switchToScan();    // Creating a method that switches to the scanning page
         void switchToHistory(); // Creating a method that switches to the History Page.
-
+        void switchToSettings();
     }
 
 

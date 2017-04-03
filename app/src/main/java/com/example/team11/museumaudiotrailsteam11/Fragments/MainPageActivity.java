@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import com.example.team11.museumaudiotrailsteam11.BeaconHistory.BeaconHistory;
 import com.example.team11.museumaudiotrailsteam11.BeaconScan.BeaconsListScreen;
 import com.example.team11.museumaudiotrailsteam11.R;
+import com.example.team11.museumaudiotrailsteam11.Settings;
 
 /**
  * Created by c1630186 on 25/03/2017.
@@ -79,6 +80,12 @@ public class MainPageActivity extends AppCompatActivity implements HomeFragment.
     public void switchToHistory() { // Method from interface onFragmentSwitchListener
         Intent i = new Intent(getApplicationContext(), BeaconHistory.class);    // Making a new intent to switch to the BeaconHistory.
         startActivity(i);   // Start the Intent
+    }
+
+    @Override
+    public void switchToSettings() {
+        Intent i = new Intent(getApplicationContext(), Settings.class);    // Making a new intent to switch to the BeaconHistory.
+        startActivity(i);
     }
 }
 

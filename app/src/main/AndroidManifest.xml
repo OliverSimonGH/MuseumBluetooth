@@ -30,5 +30,7 @@
             android:name=".BeaconHistory.BeaconHistory"
             android:label="Beacon History" />
         <activity android:name=".museumInfo"></activity>
+        <activity android:name=".Settings"
+            android:configChanges="orientation|screenSize"></activity>
     </application>
 </manifest>

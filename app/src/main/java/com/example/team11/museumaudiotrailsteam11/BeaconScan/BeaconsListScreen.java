@@ -34,6 +34,7 @@ import com.example.team11.museumaudiotrailsteam11.BeaconHistory.BluetoothBeacon;
 import com.example.team11.museumaudiotrailsteam11.Database.DBSQLiteHelper;
 import com.example.team11.museumaudiotrailsteam11.MainActivity;
 import com.example.team11.museumaudiotrailsteam11.R;
+import com.example.team11.museumaudiotrailsteam11.SettingsPreference;
 import com.gcell.ibeacon.gcellbeaconscanlibrary.GCellBeaconManagerScanEvents;
 import com.gcell.ibeacon.gcellbeaconscanlibrary.GCellBeaconRegion;
 import com.gcell.ibeacon.gcellbeaconscanlibrary.GCellBeaconScanManager;
@@ -56,6 +57,7 @@ public class BeaconsListScreen extends AppCompatActivity implements GCellBeaconM
     private final int beaconIntervalTimer = 5;
     private DBSQLiteHelper database;
     private android.support.v7.app.ActionBar actionBar;
+    private SettingsPreference settings;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -137,7 +139,9 @@ public class BeaconsListScreen extends AppCompatActivity implements GCellBeaconM
                 addBeaconsToList(beacon);
                 listAdapter.notifyDataSetChanged();
             }
-            createNotification(getApplicationContext(), true, dID, beacons.size() + " Beacons Have Been Found!");
+            if (settings.isNotificationsChecked()){
+                createNotification(getApplicationContext(), true, dID, beacons.size() + " Beacons Have Been Found!");
+            }
         }
     }
 

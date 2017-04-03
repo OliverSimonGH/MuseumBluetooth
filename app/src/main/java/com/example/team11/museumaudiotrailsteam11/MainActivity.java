@@ -101,4 +101,10 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.onFr
         Intent i = new Intent(getApplicationContext(), BeaconHistory.class);    // Making a new intent to switch to the BeaconHistory.
         startActivity(i);   // Start the Intent
     }
+
+    @Override
+    public void switchToSettings() {
+        Intent i = new Intent(getApplicationContext(), Settings.class);    // Making a new intent to switch to the BeaconHistory.
+        startActivity(i);   // Start the Intent
+    }
 }
