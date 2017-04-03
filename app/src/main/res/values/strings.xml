@@ -38,7 +38,6 @@
     // Menu Strings
     <string name="homeItemMenu">Home</string>
     <string name="museumSearchItem">Search</string>
-    <string name="settingsItem">Settings</string>
     <string name="mapItem">Map</string>
     // Setting Strings
     <string name="settings">Settings</string>
@@ -50,4 +49,7 @@
         <item name="welsh">Welsh</item>
         <item name="spanish">Spanish</item>
     </string-array>
+    // HomeFragment Strings:
+    <string name="scanningButton">Scan For Beacons</string>
+    <string name="viewHistoryButton">View History</string>
 </resources>
