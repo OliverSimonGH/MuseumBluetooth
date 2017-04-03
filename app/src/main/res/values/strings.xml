@@ -44,7 +44,13 @@
     <string name="museumSearchItem">Search</string>
     <string name="settingsItem">Settings</string>
     <string name="mapItem">Map</string>
-=======
     <string name="settings">Settings</string>
->>>>>>> exhibitDatabaseAndInterface
+    <string name="notifications">Notification Settings</string>
+    <string name="show_notifications">Show Notifications</string>
+    <string name="language_setting">Language Settings</string>
+    <string-array name="language_array">
+        <item>English</item>
+        <item>Welsh</item>
+        <item>Spanish</item>
+    </string-array>
 </resources>
