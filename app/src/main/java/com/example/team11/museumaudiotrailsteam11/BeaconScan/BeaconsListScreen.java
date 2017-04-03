@@ -1,20 +1,28 @@
 package com.example.team11.museumaudiotrailsteam11.BeaconScan;
 
+import android.app.Activity;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.ActivityNotFoundException;
 import android.content.ComponentName;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -47,11 +55,24 @@ public class BeaconsListScreen extends AppCompatActivity implements GCellBeaconM
     private Timer timer = new Timer();
     private final int beaconIntervalTimer = 5;
     private DBSQLiteHelper database;
+    private android.support.v7.app.ActionBar actionBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.beacon_search_adapter_list);
+
+        actionBar = getSupportActionBar();
+        actionBar.setDisplayShowHomeEnabled(false);
+        actionBar.setDisplayShowTitleEnabled(false);
+        actionBar.setDisplayShowCustomEnabled(true);
+        actionBar.setCustomView(R.layout.custom_action_bar);
+        Toolbar parent =(Toolbar) actionBar.getCustomView().getParent();
+        parent.setContentInsetsAbsolute(0,0);
+
+        TextView actionTitle = (TextView) findViewById(R.id.action_bar_title);
+        actionTitle.setText("Beacon Scan");
+
         database = new DBSQLiteHelper(this);
         database.createTables();
 
@@ -67,17 +88,33 @@ public class BeaconsListScreen extends AppCompatActivity implements GCellBeaconM
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String beaconUUID = listAdapter.getBeaconUUID(position);
-                String beaconMajorNo = listAdapter.getBeaconMajorNo(position);
-                String beaconMinorNo = listAdapter.getBeaconMinorNo(position);
-                String beaconName = listAdapter.getBeaconName(position);
-                String beaconURL = listAdapter.getBeaconURL(position);
-//
-                database.insertHistoryData(beaconUUID, Integer.parseInt(beaconMajorNo), Integer.parseInt(beaconMinorNo), beaconName, beaconURL);
+                final String beaconUUID = listAdapter.getBeaconUUID(position);
+                final String beaconMajorNo = listAdapter.getBeaconMajorNo(position);
+                final String beaconMinorNo = listAdapter.getBeaconMinorNo(position);
+                final String beaconName = listAdapter.getBeaconName(position);
+                final String beaconURL = listAdapter.getBeaconURL(position);
 
-//                http://stackoverflow.com/questions/12013416/is-there-any-way-in-android-to-force-open-a-link-to-open-in-chrome
-//                get item clicked URL
-                openChrome(beaconURL);
+                AlertDialog.Builder beaconDialog = new AlertDialog.Builder(BeaconsListScreen.this);
+                beaconDialog.setMessage("Please select an option")
+                        .setCancelable(true)
+                        .setPositiveButton("Add to history", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                database.insertHistoryData(beaconUUID, Integer.parseInt(beaconMajorNo), Integer.parseInt(beaconMinorNo), beaconName, beaconURL);
+                                Toast.makeText(getApplicationContext(), "Added " + beaconName + " to history", Toast.LENGTH_SHORT).show();
+                            }
+                        })
+                        .setNegativeButton("Open URL", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                //http://stackoverflow.com/questions/12013416/is-there-any-way-in-android-to-force-open-a-link-to-open-in-chrome
+                                //get item clicked URL
+                                openChrome(beaconURL);
+                            }
+                        });
+                AlertDialog alert = beaconDialog.create();
+                alert.setTitle(getString(R.string.options));
+                alert.show();
             }
         });
 

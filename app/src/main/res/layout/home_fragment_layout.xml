@@ -1,37 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="400dp"
-    android:background="#ffffff">
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:padding="10dp">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Home"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:id="@+id/homeTitle"
-        android:layout_gravity="center_horizontal" />
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:id="@+id/imageHome"
-        android:layout_gravity="center_horizontal" />
-
-    <Button
-        style="?android:attr/buttonStyleSmall"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Scan for Beacons"
-        android:id="@+id/scanBtn"
-        android:layout_gravity="center_horizontal" />
+        android:padding="2dp"
+        android:background="@color/colorBlack"
+        android:layout_marginBottom="10dp">
 
-    <Button
-        style="?android:attr/buttonStyleSmall"
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageHome"
+            android:layout_gravity="center_horizontal" />
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="View History"
-        android:id="@+id/btnHistory"
-        android:icon="@drawable/ic_history"
-        android:layout_gravity="center_horizontal" />
+        android:background="@color/colorBlack"
+        android:padding="2dp"
+        android:layout_marginBottom="10dp">
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Scan for Beacons"
+            android:id="@+id/scanBtn"
+            android:layout_gravity="center_horizontal"
+            android:background="@color/colorWhite"
+            android:textStyle="bold"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorBlack"
+        android:padding="2dp"
+        android:layout_marginBottom="10dp">
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="View History"
+            android:id="@+id/btnHistory"
+            android:icon="@drawable/ic_history"
+            android:layout_gravity="center_horizontal"
+            android:background="@color/colorWhite"
+            android:textStyle="bold"/>
+    </LinearLayout>
+
+
 </LinearLayout>

@@ -1,13 +1,21 @@
 package com.example.team11.museumaudiotrailsteam11;
 
+import android.app.ActionBar;
 import android.app.Fragment;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.support.annotation.NonNull;
+import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.team11.museumaudiotrailsteam11.BeaconHistory.BeaconHistory;
 import com.example.team11.museumaudiotrailsteam11.BeaconScan.BeaconsListScreen;
@@ -19,12 +27,24 @@ import com.example.team11.museumaudiotrailsteam11.Fragments.SettingsFragment;
 public class MainActivity extends AppCompatActivity implements HomeFragment.onFragmentClickListener{
 
     // Declaring a BottomNavigationView object - This was added with the widget.
-    BottomNavigationView bottomNavigationView;
+    private BottomNavigationView bottomNavigationView;
+    private android.support.v7.app.ActionBar actionBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_page);
+
+        actionBar = getSupportActionBar();
+        actionBar.setDisplayShowHomeEnabled(false);
+        actionBar.setDisplayShowTitleEnabled(false);
+        actionBar.setDisplayShowCustomEnabled(true);
+        actionBar.setCustomView(R.layout.custom_action_bar);
+        Toolbar parent =(Toolbar) actionBar.getCustomView().getParent();
+        parent.setContentInsetsAbsolute(0,0);
+
+        TextView actionTitle = (TextView) findViewById(R.id.action_bar_title);
+        actionTitle.setText("Museum Guide");
 
         bottomNavigationView = (BottomNavigationView) findViewById(R.id.navBot);
 
