@@ -3,4 +3,5 @@
     <string name="notification">Notification</string>
     <string name="show_beacons">Show Beacons</string>
     <string name="exhibits_history">Exhibits History</string>
+    <string name="settings">Settings</string>
 </resources>

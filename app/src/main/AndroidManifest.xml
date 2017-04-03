@@ -26,6 +26,5 @@
             android:label="Search Beacons" />
         <activity android:name=".BeaconHistory.BeaconHistory"
             android:label="Beacon History" />
-
     </application>
 </manifest>
