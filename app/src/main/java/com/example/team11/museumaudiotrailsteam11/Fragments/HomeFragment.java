@@ -48,7 +48,8 @@ public class HomeFragment extends Fragment {
         accessHistorybtn.setOnClickListener(new View.OnClickListener() { // Setting onClickListener for the History button.
             @Override
             public void onClick(View v) {
-                fm.switchToHistory();   // Calling the method to switch to the History page.
+                if(fm != null)
+                    fm.switchToHistory();   // Calling the method to switch to the History page.
             }
         });
 

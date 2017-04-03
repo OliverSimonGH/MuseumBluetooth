@@ -49,7 +49,7 @@
     <string name="notifications">Notification Settings</string>
     <string name="show_notifications">Show Notifications</string>
     <string name="language_setting">Language Settings</string>
-    <string-array name="language_array">
+    <string-array name="spinner_array">
         <item>English</item>
         <item>Welsh</item>
         <item>Spanish</item>
