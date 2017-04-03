@@ -48,6 +48,7 @@
     <string name="notifications">Notification Settings</string>
     <string name="show_notifications">Show Notifications</string>
     <string name="language_setting">Language Settings</string>
+    <string name="save_language">Save Language</string>
     //spinner strings
     <string-array name="spinner_array">
         <item>English</item>

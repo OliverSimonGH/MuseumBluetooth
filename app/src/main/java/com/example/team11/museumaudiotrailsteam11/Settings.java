@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.Spinner;
 import android.widget.Switch;
@@ -30,6 +31,7 @@ public class Settings extends AppCompatActivity {
     private Spinner spin;
     Locale myLocale;
     String languageType;
+    private Button btnLang;
 
 
     @Override
@@ -37,50 +39,43 @@ public class Settings extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.settings_fragment_layout);
 
-        Spinner spin = (Spinner) findViewById(R.id.language_spinner);
-
-        spin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if (languageType.equals("Spanish")) {
-                    Toast.makeText(getApplicationContext(), "You have selected Spanish", Toast.LENGTH_SHORT).show();
-                    setLocale("es");
-                } else if (languageType.equals("Welsh")) {
-                    Toast.makeText(getApplicationContext(), "You have selected Welsh", Toast.LENGTH_SHORT).show();
-                    setLocale("cy");
-                } else if (languageType.equals("English")) {
-                    Toast.makeText(getApplicationContext(), "You have selected Welsh", Toast.LENGTH_SHORT).show();
-                    setLocale("en");
-                }
-
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-                Toast.makeText(getApplicationContext(), "You have selected English", Toast.LENGTH_SHORT).show();
-                setLocale("values");
-            }
-
-//            public void onItemSelected(){
-//
-//                if (languageType.equals("Spanish")) {
-//                    Toast.makeText(getActivity(), "You have selected Spanish", Toast.LENGTH_SHORT).show();
-//                    setLocale("es");
-//                } else if (languageType.equals("Welsh")) {
-//                    Toast.makeText(getActivity(), "You have selected Welsh", Toast.LENGTH_SHORT).show();
-//                    setLocale("cy");
-//                } else if (languageType.equals("English")) {
-//                    Toast.makeText(getActivity(), "You have selected Welsh", Toast.LENGTH_SHORT).show();
-//                    setLocale("en");
-//                }
-//
-//            }
-//            public void onNothingSelected(){
-//                Toast.makeText(getActivity(), "You have selected English", Toast.LENGTH_SHORT).show();
-//                setLocale("values");
-//            }
-        });
+        final Spinner spin = (Spinner) findViewById(R.id.language_spinner);
+        Button btnLang = (Button) findViewById(R.id.lang_button);
         languageType = String.valueOf(spin.getSelectedItem());
+
+
+        btnLang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                spin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
+
+                    @Override
+                    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                        if (languageType.equals("Spanish")) {
+                            Toast.makeText(getApplicationContext(), "You have selected Spanish", Toast.LENGTH_SHORT).show();
+                            setLocale("es");
+                        } else if (languageType.equals("Welsh")) {
+                            Toast.makeText(getApplicationContext(), "You have selected Welsh", Toast.LENGTH_SHORT).show();
+                            setLocale("cy");
+                        } else if (languageType.equals("English")) {
+                            Toast.makeText(getApplicationContext(), "You have selected Welsh", Toast.LENGTH_SHORT).show();
+                            setLocale("en");
+                        }
+
+                    }
+
+                    @Override
+                    public void onNothingSelected(AdapterView<?> parent) {
+                        Toast.makeText(getApplicationContext(), "You have selected English", Toast.LENGTH_SHORT).show();
+                        setLocale("values");
+                    }
+            });
+        }
+
+        });
+
 
 
         mySwitch = (Switch) findViewById(R.id.notificationSwitch);
