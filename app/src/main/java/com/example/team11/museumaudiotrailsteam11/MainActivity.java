@@ -18,8 +18,6 @@ import com.example.team11.museumaudiotrailsteam11.Fragments.SettingsFragment;
 
 public class MainActivity extends AppCompatActivity implements HomeFragment.onFragmentClickListener{
 
-
-
     // Declaring a BottomNavigationView object - This was added with the widget.
     BottomNavigationView bottomNavigationView;
 
@@ -79,7 +77,7 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.onFr
     }
 
     @Override
-    public void switchTOHistory() { // Method from interface onFragmentSwitchListener
+    public void switchToHistory() { // Method from interface onFragmentSwitchListener
         Intent i = new Intent(getApplicationContext(), BeaconHistory.class);    // Making a new intent to switch to the BeaconHistory.
         startActivity(i);   // Start the Intent
     }

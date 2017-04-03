@@ -76,7 +76,7 @@ public class MainPageActivity extends AppCompatActivity implements HomeFragment.
     }
 
     @Override
-    public void switchTOHistory() { // Method from interface onFragmentSwitchListener
+    public void switchToHistory() { // Method from interface onFragmentSwitchListener
         Intent i = new Intent(getApplicationContext(), BeaconHistory.class);    // Making a new intent to switch to the BeaconHistory.
         startActivity(i);   // Start the Intent
     }

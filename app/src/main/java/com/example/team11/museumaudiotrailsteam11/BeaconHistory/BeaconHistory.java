@@ -9,6 +9,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -36,11 +37,8 @@ public class BeaconHistory extends AppCompatActivity{
 
 //        create the database
         database = new DBSQLiteHelper(this);
-        database.dropTables();
+        database.createTables();
 
-        for (int i = 0; i < 5 ; i++) {
-            addData(getString(R.string.addData) + i, 1000, 200 + i);
-        }
 //        add beacons to beacon vector
         addBeaconsToList();
 
@@ -62,6 +60,7 @@ public class BeaconHistory extends AppCompatActivity{
                                 String beaconUUID = listAdapter.getBeaconUUID(position);
                                 String beaconMajorNo = listAdapter.getBeaconMajorNo(position);
                                 String beaconMinorNo = listAdapter.getBeaconMinorNo(position);
+                                String beaconName = listAdapter.getBeaconName(position);
 
 //                                https://www.youtube.com/watch?v=nY2bYJyGty8
                                 Cursor data = database.getHistoryItemID(beaconUUID, beaconMajorNo, beaconMinorNo);
@@ -72,9 +71,9 @@ public class BeaconHistory extends AppCompatActivity{
                                 if (itemID > -1){
                                     database.removeHistoryValue(itemID);
                                     listAdapter.remove(beaconUUID, beaconMajorNo, beaconMinorNo);
-                                    Toast.makeText(getApplicationContext(), getString(R.string.YouHaveDeleted) + beaconUUID, Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getApplicationContext(), "You have deleted " + beaconName , Toast.LENGTH_SHORT).show();
                                 } else {
-                                    Toast.makeText(getApplicationContext(), R.string.NoID, Toast.LENGTH_SHORT).show();
+                                    Log.i(getString(R.string.app_name), "Cannot find ID associated with beacon");
                                 }
                             }
                         })
@@ -96,37 +95,42 @@ public class BeaconHistory extends AppCompatActivity{
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 //                http://stackoverflow.com/questions/12013416/is-there-any-way-in-android-to-force-open-a-link-to-open-in-chrome
 //                get item clicked URL
-                String url = getString(R.string.StringURL);
-                try {
-                    Intent i = new Intent(getString(R.string.AndroidIntentActionMain));
-                    i.setComponent(ComponentName.unflattenFromString(getString(R.string.comAndroidChromeMain)));
-                    i.addCategory(getString(R.string.AndroidIntentCategoryLauncher));
-                    i.setData(Uri.parse(url));
-                    startActivity(i);
-                }
-                catch(ActivityNotFoundException e) {
-                    // Chrome is not installed
-                    Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-                    startActivity(i);
-                }
+
+                String beaconURL = listAdapter.getBeaconURL(position);
+                openChrome(beaconURL);
             }
         });
     }
 
-    public void addBeaconsToList(){
+    private void openChrome(String url) {
+        try {
+            Intent i = new Intent("android.intent.action.MAIN");
+            i.setComponent(ComponentName.unflattenFromString("com.android.chrome/com.android.chrome.Main"));
+            i.addCategory("android.intent.category.LAUNCHER");
+            i.setData(Uri.parse(url));
+            startActivity(i);
+        }
+        catch(ActivityNotFoundException e) {
+            // Chrome is not installed
+            Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+            startActivity(i);
+        }
+    }
+
+    private void addBeaconsToList(){
         Cursor contents = database.getAllHistoryContents();
         if (contents.getCount() == 0){
             Toast.makeText(getApplicationContext(), R.string.NoBeaconsFound, Toast.LENGTH_SHORT).show();
         } else {
             while (contents.moveToNext()){
-                beacons.add(new BluetoothBeacon(contents.getString(1), contents.getString(2), contents.getString(3)));
+                beacons.add(new BluetoothBeacon(contents.getString(1), contents.getString(2), contents.getString(3), contents.getString(4), contents.getString(5)));
             }
         }
     }
 
-    public void addData(String beaconUUID, int beaconMajorNo, int beaconMinorNo){
-        boolean insertData = database.insertHistoryData(beaconUUID, beaconMajorNo, beaconMinorNo);
-        if (insertData) Toast.makeText(getApplicationContext(), R.string.SuccessfullyAddedData, Toast.LENGTH_SHORT).show();
-        else Toast.makeText(getApplicationContext(), R.string.ErrorInsertingData, Toast.LENGTH_SHORT).show();
+    public void addHistoryData(String beaconUUID, int beaconMajorNo, int beaconMinorNo, String beaconName, String beaconURL){
+        boolean insertData = database.insertHistoryData(beaconUUID, beaconMajorNo, beaconMinorNo, beaconName, beaconURL);
+        if (insertData) Toast.makeText(getApplicationContext(), "Successfully Added Data", Toast.LENGTH_SHORT).show();
+        else Toast.makeText(getApplicationContext(), "Error Inserting Data", Toast.LENGTH_SHORT).show();
     }
 }

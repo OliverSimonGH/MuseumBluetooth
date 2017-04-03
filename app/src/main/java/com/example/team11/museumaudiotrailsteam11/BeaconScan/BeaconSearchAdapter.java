@@ -7,8 +7,11 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import com.example.team11.museumaudiotrailsteam11.BeaconHistory.BluetoothBeacon;
 import com.example.team11.museumaudiotrailsteam11.R;
 import com.gcell.ibeacon.gcellbeaconscanlibrary.GCelliBeacon;
+
+import org.w3c.dom.Text;
 
 import java.util.List;
 
@@ -18,10 +21,10 @@ import java.util.List;
  */
 public class BeaconSearchAdapter extends BaseAdapter {
 
-    List<GCelliBeacon> dataSource;
+    List<BluetoothBeacon> dataSource;
     LayoutInflater inflater;
 
-    public BeaconSearchAdapter(Context c, List<GCelliBeacon> dataSource) {
+    public BeaconSearchAdapter(Context c, List<BluetoothBeacon> dataSource) {
         this.dataSource = dataSource;
         inflater = LayoutInflater.from(c);
     }
@@ -41,8 +44,13 @@ public class BeaconSearchAdapter extends BaseAdapter {
         return 0;
     }
 
-    public void remove(int i) {
-        this.dataSource.remove(i);
+    public void remove(String beaconUUID, String beaconMajorNo, String beaconMinorNo) {
+        for (int i = 0; i < dataSource.size(); i++) {
+            BluetoothBeacon b = dataSource.get(i);
+            if ((b.getBeaconUUID() == beaconUUID) && (b.getMajorNo() == beaconMajorNo) && (b.getMinorNo() == beaconMinorNo)){
+                this.dataSource.remove(b);
+            }
+        }
         notifyDataSetChanged();
     }
 
@@ -51,6 +59,8 @@ public class BeaconSearchAdapter extends BaseAdapter {
         TextView beaconUUID;
         TextView beaconMajorNo;
         TextView beaconMinorNo;
+        TextView beaconName;
+        TextView beaconURL;
     }
 
     @Override
@@ -60,26 +70,34 @@ public class BeaconSearchAdapter extends BaseAdapter {
         if(view == null) {
             vh = new ViewHolder();
             view = inflater.inflate(R.layout.beacon_search_adapter_row, null);
-            vh.beaconUUID = (TextView) view.findViewById(R.id.beaconRow);
-            vh.beaconMajorNo = (TextView) view.findViewById(R.id.beaconMajorNo);
-            vh.beaconMinorNo = (TextView) view.findViewById(R.id.beaconMinorNo);
+            vh.beaconName = (TextView) view.findViewById(R.id.beaconName);
+            vh.beaconURL = (TextView) view.findViewById(R.id.beaconURL);
             view.setTag(vh);
         }else{
             vh = (ViewHolder) view.getTag();
         }
-        vh.beaconUUID.setText(dataSource.get(position).getProxUuid().getStringFormattedUuid());
-        vh.beaconMajorNo.setText("Major No: " + dataSource.get(position).getMajorNo());
-        vh.beaconMinorNo.setText("Minor No: " + dataSource.get(position).getMinorNo());
+        vh.beaconName.setText("Exhibit: " + dataSource.get(position).getName());
+        vh.beaconURL.setText("URL: " + dataSource.get(position).getUrl());
         return view;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+    public String getBeaconUUID(int i) {
+        return dataSource.get(i).getBeaconUUID();
+    }
 
-        BeaconSearchAdapter that = (BeaconSearchAdapter) o;
+    public String getBeaconMajorNo(int i) {
+        return dataSource.get(i).getMajorNo();
+    }
 
-        return dataSource.equals(that.dataSource);
+    public String getBeaconMinorNo(int i) {
+        return dataSource.get(i).getMinorNo();
+    }
+
+    public String getBeaconName(int i) {
+        return dataSource.get(i).getName();
+    }
+
+    public String getBeaconURL(int i) {
+        return dataSource.get(i).getUrl();
     }
 }

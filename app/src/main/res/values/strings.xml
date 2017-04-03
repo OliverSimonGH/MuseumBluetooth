@@ -44,4 +44,7 @@
     <string name="museumSearchItem">Search</string>
     <string name="settingsItem">Settings</string>
     <string name="mapItem">Map</string>
+=======
+    <string name="settings">Settings</string>
+>>>>>>> exhibitDatabaseAndInterface
 </resources>
