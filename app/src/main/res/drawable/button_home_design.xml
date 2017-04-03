@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    // https://android--code.blogspot.co.uk/2015/01/android-round-button.html
+    <item>
+        <shape android:shape="rectangle">
+            <stroke android:color="#340ecc" android:width="5dp"></stroke>
+            <solid android:color="#00d4f9"></solid>
+            <size android:width="150dp" android:height="150dp"></size>
+        </shape>
+    </item>
+</selector>
