@@ -22,7 +22,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".Map" />
-        <activity android:name=".Search" />
+
+        <uses-permission android:name="android.permission.INTERNET" />
+
+
         <activity
             android:name=".BeaconScan.BeaconsListScreen"
             android:label="Search Beacons" />
