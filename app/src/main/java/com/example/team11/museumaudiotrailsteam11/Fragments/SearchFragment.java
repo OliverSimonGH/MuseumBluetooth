@@ -17,7 +17,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.SearchView;
-import android.widget.TextView;
 
 import com.example.team11.museumaudiotrailsteam11.R;
 
@@ -33,7 +32,6 @@ public class SearchFragment extends Fragment {
     ListView list;
     List<String> museums;
     SearchView search;
-    TextView tv;
     WebView wv;
 
 
@@ -50,12 +48,13 @@ public class SearchFragment extends Fragment {
 
         list = (ListView) view.findViewById(R.id.lv);
         search = (SearchView) view.findViewById(R.id.sv);
-        tv = (TextView) view.findViewById(R.id.tv);
+
         wv = (WebView) view.findViewById(R.id.wv);
         wv.setVisibility(View.INVISIBLE);
 
 
         museums = new ArrayList<>();
+        museums.add(" ");
         museums.add(getString(R.string.Cardiff));
         museums.add(getString(R.string.CardiffBay));
         museums.add(getString(R.string.Newport));

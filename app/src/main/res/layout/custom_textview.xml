@@ -7,13 +7,13 @@
 
         android:text="New Text"
         android:id="@+id/tv"
-        android:layout_gravity="center"
         android:textColor="#A9A9A9"
         android:layout_height="match_parent"
-        android:layout_width="fill_parent"/>
-        <!--android:textSize="18sp"-->
-        <!--android:paddingLeft="6dip"-->
-        <!--android:paddingRight="6dip"-->
-        <!--android:gravity="center" />/>-->
+        android:layout_width="fill_parent"
+        android:textSize="18sp"
+        android:paddingLeft="6dip"
+        android:paddingRight="6dip"/>
+
+        <!--android:backgroundTint="#C0C0C0"/>-->
 
 </LinearLayout>

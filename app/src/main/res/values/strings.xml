@@ -50,4 +50,5 @@
         <item name="welsh">Welsh</item>
         <item name="spanish">Spanish</item>
     </string-array>
+    <string name="options">Options</string>
 </resources>
