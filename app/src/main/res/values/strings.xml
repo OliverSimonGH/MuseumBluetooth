@@ -46,8 +46,8 @@
     <string name="language_setting">Language Settings</string>
     <string-array name="language_array">
         <item name="english">English</item>
-        <item name="welsh">Welsh</item>
-        <item name="spanish">Spanish</item>
+        <item name="welsh">Cymraeg</item>
+        <item name="spanish">Espanol</item>
     </string-array>
     // HomeFragment Strings:
     <string name="scanningButton">Scan For Beacons</string>
