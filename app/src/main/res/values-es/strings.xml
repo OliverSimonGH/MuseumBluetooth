@@ -32,4 +32,7 @@
     <string name="museumSearchItem">Buscar</string>
     <string name="settingsItem">Ajustes</string>
     <string name="mapItem">Mapa</string>
+    // HomeFragment Strings
+    <string name="scanBtn">Búsqueda de balizas</string>
+    <string name="historyBtn">La Historia</string>
 </resources>

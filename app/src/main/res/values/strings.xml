@@ -54,4 +54,7 @@
         <item>Welsh</item>
         <item>Spanish</item>
     </string-array>
+    // HomeFragment Strings
+    <string name="scanBtn">Scan For Beacons</string>
+    <string name="historyBtn">View History</string>
 </resources>

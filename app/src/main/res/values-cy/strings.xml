@@ -33,4 +33,8 @@
     <string name="museumSearchItem">Chwilio</string>
     <string name="settingsItem">Gosodiadau</string>
     <string name="mapItem">Map</string>
+
+    // HomeFragment Strings
+    <string name="scanBtn">Scanio Am Beacon</string>
+    <string name="historyBtn">Gweld Hanes</string>
 </resources>
