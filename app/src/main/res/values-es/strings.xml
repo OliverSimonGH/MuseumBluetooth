@@ -27,4 +27,9 @@
     <string name="exhibits_history"> Historia de las exposiciones</string>
     <string name="notification">Notificación</string>
     <string name="show_beacons"> Mostrar balizas</string>
+    // Menu
+    <string name="homeItemMenu">Casa</string>
+    <string name="museumSearchItem">Buscar</string>
+    <string name="settingsItem">Ajustes</string>
+    <string name="mapItem">Mapa</string>
 </resources>

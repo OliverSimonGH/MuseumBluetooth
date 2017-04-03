@@ -27,4 +27,10 @@
     <string name="exhibits_history"> arddangosion Hanes</string>
     <string name="notification">Hysbysiad</string>
     <string name="show_beacons"> Dangos Beacons</string>
+
+    // Menu Strings
+    <string name="homeItemMenu">Cartref</string>
+    <string name="museumSearchItem">Chwilio</string>
+    <string name="settingsItem">Gosodiadau</string>
+    <string name="mapItem">Map</string>
 </resources>
