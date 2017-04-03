@@ -14,6 +14,7 @@ import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -54,13 +55,24 @@ public class BeaconsListScreen extends AppCompatActivity implements GCellBeaconM
     private Timer timer = new Timer();
     private final int beaconIntervalTimer = 5;
     private DBSQLiteHelper database;
-    private TextView addToHistory;
-    private TextView openUrl;
+    private android.support.v7.app.ActionBar actionBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.beacon_search_adapter_list);
+
+        actionBar = getSupportActionBar();
+        actionBar.setDisplayShowHomeEnabled(false);
+        actionBar.setDisplayShowTitleEnabled(false);
+        actionBar.setDisplayShowCustomEnabled(true);
+        actionBar.setCustomView(R.layout.custom_action_bar);
+        Toolbar parent =(Toolbar) actionBar.getCustomView().getParent();
+        parent.setContentInsetsAbsolute(0,0);
+
+        TextView actionTitle = (TextView) findViewById(R.id.action_bar_title);
+        actionTitle.setText("Beacon Scan");
+
         database = new DBSQLiteHelper(this);
         database.createTables();
 

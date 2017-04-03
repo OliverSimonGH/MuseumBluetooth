@@ -9,10 +9,12 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.team11.museumaudiotrailsteam11.Database.DBSQLiteHelper;
@@ -29,11 +31,23 @@ public class BeaconHistory extends AppCompatActivity{
     private BeaconHistoryAdapter listAdapter;
     private List<BluetoothBeacon> beacons = new ArrayList<>();
     private DBSQLiteHelper database;
+    private android.support.v7.app.ActionBar actionBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.beacon_history_list);
+
+        actionBar = getSupportActionBar();
+        actionBar.setDisplayShowHomeEnabled(false);
+        actionBar.setDisplayShowTitleEnabled(false);
+        actionBar.setDisplayShowCustomEnabled(true);
+        actionBar.setCustomView(R.layout.custom_action_bar);
+        Toolbar parent =(Toolbar) actionBar.getCustomView().getParent();
+        parent.setContentInsetsAbsolute(0,0);
+
+        TextView actionTitle = (TextView) findViewById(R.id.action_bar_title);
+        actionTitle.setText("Exhibit's History");
 
 //        create the database
         database = new DBSQLiteHelper(this);
