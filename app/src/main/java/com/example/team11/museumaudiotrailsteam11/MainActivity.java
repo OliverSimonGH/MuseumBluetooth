@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.onFr
         // Commit the change.
         fragmentTransaction.commit();
 
-        // Setting an on click listner for every item in menu
+        // Setting an on click listener for every item in menu
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
 
             // http://www.truiton.com/2017/01/android-bottom-navigation-bar-example/
