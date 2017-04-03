@@ -48,8 +48,6 @@ public class Settings extends AppCompatActivity {
                 else isNotificationsOn = false;
             }
         });
-        @Override
-        public void
     }
 
 
