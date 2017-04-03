@@ -44,21 +44,21 @@ public class SettingsFragment extends Fragment {
 //        else if (selected.equals("Spanish")){
 //            method();
 //        }
-//        mySwitch = (Switch)view.findViewById(R.id.notificationSwitch);
-//        mySwitch.setChecked(true);
-//        mySwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-//            @Override
-//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-//                if (isChecked) isNotificationsOn = true;
-//                else isNotificationsOn = false;
-//            }
-//        });
+        mySwitch = (Switch)view.findViewById(R.id.notificationSwitch);
+        mySwitch.setChecked(true);
+        mySwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) isNotificationsOn = true;
+                else isNotificationsOn = false;
+            }
+        });
         return view;
     }
 
-//    public boolean isNotificationsOn() {
-//        return isNotificationsOn;
-//    }
+    public boolean isNotificationsOn() {
+        return isNotificationsOn;
+    }
 //    public void setNotificationsOn(boolean notificationsOn) {
 //        isNotificationsOn = notificationsOn;
 //    }
