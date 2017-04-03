@@ -15,12 +15,6 @@
 
 
     <item
-        android:id="@+id/settings_item"
-        android:icon="@drawable/ic_settings"
-        android:title="@string/settingsItem"
-        />
-
-    <item
         android:id="@+id/map_item"
         android:icon="@drawable/ic_map"
         android:title="@string/mapItem"

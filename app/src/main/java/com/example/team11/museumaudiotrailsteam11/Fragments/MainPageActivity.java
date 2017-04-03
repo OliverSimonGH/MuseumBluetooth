@@ -52,9 +52,6 @@ public class MainPageActivity extends AppCompatActivity implements HomeFragment.
                     case R.id.search_item:  // If search item....
                         chosenFragment = SearchFragment.newInstance();  // Set the fragment to Search.
                         break;
-                    case R.id.settings_item: // If settings item
-                        chosenFragment = SettingsFragment.newInstance();    // Set the fragment to Settings.
-                        break;
                     case R.id.map_item: // If map item
                         chosenFragment = MapFragment.newInstance(); // Set the fragment to Map.
                         break;
