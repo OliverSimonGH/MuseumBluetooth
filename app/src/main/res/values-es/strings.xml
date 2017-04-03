@@ -46,4 +46,6 @@
     // HomeFragment Strings:
     <string name="scanningButton">Búsqueda de Faro</string>
     <string name="viewHistoryButton">La Historia</string>
+    // SettingsPreference
+    <string name="changeLanguage">Tú cambiado de idioma a </string>
 </resources>

@@ -54,4 +54,6 @@
     // HomeFragment Strings:
     <string name="scanningButton">Scan For Beacons</string>
     <string name="viewHistoryButton">View History</string>
+    // SettingsPreference
+    <string name="changeLanguage">You have changed language to </string>
 </resources>

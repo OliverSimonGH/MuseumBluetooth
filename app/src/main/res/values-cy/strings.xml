@@ -46,4 +46,6 @@
     // HomeFragment Strings:
     <string name="scanningButton">Sganio am disglair</string>
     <string name="viewHistoryButton">Hanes</string>
+    // SettingsPreference
+    <string name="changeLanguage">Yr ydych wedi newid iaith </string>
 </resources>

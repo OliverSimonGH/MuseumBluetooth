@@ -36,18 +36,18 @@ public class SettingsPreference extends PreferenceFragment {
                 switch (newValue.toString()) {
                     case "English":
                         changeLanguage("en");
-                        Toast.makeText(getActivity().getApplicationContext(), "You have changed language to " + newValue.toString(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity().getApplicationContext(), R.string.changeLanguage + newValue.toString(), Toast.LENGTH_SHORT).show();
                         break;
                     case "Spanish":
                         changeLanguage("es");
-                        Toast.makeText(getActivity().getApplicationContext(), "You have changed language to " + newValue.toString(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity().getApplicationContext(), R.string.changeLanguage + newValue.toString(), Toast.LENGTH_SHORT).show();
                         break;
                     case "Welsh":
                         changeLanguage("cy");
-                        Toast.makeText(getActivity().getApplicationContext(), "You have changed language to " + newValue.toString(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity().getApplicationContext(), R.string.changeLanguage + newValue.toString(), Toast.LENGTH_SHORT).show();
                         break;
                     default:
-                        Toast.makeText(getActivity().getApplicationContext(), "You have changed language to " + newValue.toString(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity().getApplicationContext(), R.string.changeLanguage + newValue.toString(), Toast.LENGTH_SHORT).show();
                         break;
                 }
                 return true;
