@@ -35,6 +35,7 @@ public class SearchFragment extends Fragment {
     TextView tv;
     WebView wv;
 
+
     public static SearchFragment newInstance() { // See HomeFragment for explanation
         SearchFragment fragment = new SearchFragment();
         return fragment;
@@ -50,6 +51,7 @@ public class SearchFragment extends Fragment {
         search = (SearchView) view.findViewById(R.id.sv);
         tv = (TextView) view.findViewById(R.id.tv);
         wv = (WebView) view.findViewById(R.id.wv);
+        wv.setVisibility(View.INVISIBLE);
 
 
         museums = new ArrayList<>();
@@ -73,6 +75,7 @@ public class SearchFragment extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 wv.setVisibility(View.VISIBLE);
             }
+
         });
         wv.setWebViewClient(new WebViewClient() {
             // This method is deprecated from API 24 (Nougat) onwards
@@ -93,8 +96,15 @@ public class SearchFragment extends Fragment {
                 webview.loadUrl(url.toString());
                 return false;
             }
+
         });
         wv.loadUrl("https://museum.wales/cardiff/");
+
+
+
+
+
+
 
 
         search.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
