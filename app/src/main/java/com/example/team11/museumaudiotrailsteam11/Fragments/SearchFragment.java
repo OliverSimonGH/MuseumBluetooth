@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -73,6 +74,7 @@ public class SearchFragment extends Fragment {
 
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Log.i("WEB", "web clicked");
                 wv.setVisibility(View.VISIBLE);
             }
 
@@ -82,6 +84,7 @@ public class SearchFragment extends Fragment {
             @SuppressWarnings("deprecation")
             @Override
             public boolean shouldOverrideUrlLoading(WebView webview, String url) {
+                Log.i("WEB", url);
                 webview.loadUrl(url);
                 return false;
             }
