@@ -27,6 +27,8 @@
     <string name="exhibits_history"> Historia de las exposiciones</string>
     <string name="notification">Notificación</string>
     <string name="show_beacons"> Mostrar balizas</string>
+    // MainActivity:
+    <string name="museumGuide">Guía de museos</string>
     // Menu Strings
     <string name="homeItemMenu">Casa</string>
     <string name="museumSearchItem">Buscar</string>

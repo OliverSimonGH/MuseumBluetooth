@@ -28,7 +28,7 @@ public class Settings extends AppCompatActivity {
         parent.setContentInsetsAbsolute(0,0);
 
         TextView actionTitle = (TextView) findViewById(R.id.action_bar_title);
-        actionTitle.setText("Settings");
+        actionTitle.setText(R.string.settings);
 
         Fragment fragment = new SettingsPreference();
         FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();

@@ -27,6 +27,8 @@
     <string name="exhibits_history"> arddangosion Hanes</string>
     <string name="notification">Hysbysiad</string>
     <string name="show_beacons"> Dangos Beacons</string>
+    // MainActivity:
+    <string name="museumGuide">Canllaw Amgueddfa</string>
     // Menu Strings
     <string name="homeItemMenu">Cartref</string>
     <string name="museumSearchItem">Chwillio</string>

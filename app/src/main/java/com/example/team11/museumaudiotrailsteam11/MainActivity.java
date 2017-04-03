@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.onFr
         parent.setContentInsetsAbsolute(0,0);
 
         TextView actionTitle = (TextView) findViewById(R.id.action_bar_title);
-        actionTitle.setText("Museum Guide");
+        actionTitle.setText(R.string.museumGuide);
 
         bottomNavigationView = (BottomNavigationView) findViewById(R.id.navBot);
 
