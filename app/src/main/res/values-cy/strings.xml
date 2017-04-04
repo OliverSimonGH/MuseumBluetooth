@@ -27,4 +27,25 @@
     <string name="exhibits_history"> arddangosion Hanes</string>
     <string name="notification">Hysbysiad</string>
     <string name="show_beacons"> Dangos Beacons</string>
+    // MainActivity:
+    <string name="museumGuide">Canllaw Amgueddfa</string>
+    // Menu Strings
+    <string name="homeItemMenu">Cartref</string>
+    <string name="museumSearchItem">Chwillio</string>
+    <string name="mapItem">Map</string>
+    // Setting Strings
+    <string name="settings">Gosodiau</string>
+    <string name="notifications">Hysbysiad Gosodiau</string>
+    <string name="show_notifications">Sioe Hysbysiad</string>
+    <string name="language_setting">Iaith Gosodiau</string>
+    <string-array name="language_array">
+        <item name="english">English</item>
+        <item name="welsh">Cymraeg</item>
+        <item name="spanish">Espanol</item>
+    </string-array>
+    // HomeFragment Strings:
+    <string name="scanningButton">Sganio am disglair</string>
+    <string name="viewHistoryButton">Hanes</string>
+    // SettingsPreference
+    <string name="changeLanguage">Yr ydych wedi newid iaith </string>
 </resources>

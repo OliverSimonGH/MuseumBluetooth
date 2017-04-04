@@ -35,10 +35,11 @@
     <string name="NoBeaconsFound">No beacons found</string>
     <string name="SuccessfullyAddedData">Successfully Added Data</string>
     <string name="ErrorInsertingData">Error Inserting Data</string>
+    // MainActivity:
+    <string name="museumGuide">Museum Guide</string>
     // Menu Strings
     <string name="homeItemMenu">Home</string>
     <string name="museumSearchItem">Search</string>
-    <string name="settingsItem">Settings</string>
     <string name="mapItem">Map</string>
     // Setting Strings
     <string name="settings">Settings</string>
@@ -47,7 +48,11 @@
     <string name="language_setting">Language Settings</string>
     <string-array name="language_array">
         <item name="english">English</item>
-        <item name="welsh">Welsh</item>
-        <item name="spanish">Spanish</item>
+        <item name="welsh">Cymraeg</item>
+        <item name="spanish">Espanol</item>
     </string-array>
+    // HomeFragment Strings:
+    <string name="scanningButton">Scan For Beacons</string>
+    <string name="viewHistoryButton">View History</string>
+    // SettingsPreference
 </resources>
