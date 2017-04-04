@@ -22,7 +22,6 @@ import com.example.team11.museumaudiotrailsteam11.BeaconScan.BeaconsListScreen;
 import com.example.team11.museumaudiotrailsteam11.Fragments.HomeFragment;
 import com.example.team11.museumaudiotrailsteam11.Fragments.MapFragment;
 import com.example.team11.museumaudiotrailsteam11.Fragments.SearchFragment;
-import com.example.team11.museumaudiotrailsteam11.Fragments.SettingsFragment;
 
 public class MainActivity extends AppCompatActivity implements HomeFragment.onFragmentClickListener{
 
@@ -71,9 +70,6 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.onFr
                         break;
                     case R.id.search_item:  // If search item....
                         chosenFragment = SearchFragment.newInstance();  // Set the fragment to Search.
-                        break;
-                    case R.id.settings_item: // If settings item
-                        chosenFragment = SettingsFragment.newInstance();    // Set the fragment to Settings.
                         break;
                     case R.id.map_item: // If map item
                         chosenFragment = MapFragment.newInstance(); // Set the fragment to Map.
